@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background: linear-gradient(to bottom, #11355b, #231e6c);
+  background: linear-gradient(to bottom, #144477, #302993);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -14,7 +14,7 @@
 
 a,
 .link {
-  color:#00c3ff;
+  color: #00c3ff;
   font-weight: 500;
   text-decoration: inherit;
 }
@@ -37,7 +37,8 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 100px 0;
+  padding: 100px 10px;
+  min-width: 25vw;
 }
 
 h1 {
@@ -54,6 +55,7 @@ button,
   font-weight: 500;
   font-family: inherit;
   color: rgba(255, 255, 255, 0.87);
+  border-color: #075389;
   background-color: #0a67aa;
   cursor: pointer;
   transition: all 0.25s;
@@ -61,7 +63,7 @@ button,
 button:hover,
 .button:hover {
   color: #fff;
-  border-color: #028eb8;
+  border-color: #0a67aa;
   background-color: #004997;
 }
 button:focus,

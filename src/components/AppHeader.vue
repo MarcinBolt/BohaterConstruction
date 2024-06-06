@@ -1,11 +1,11 @@
 <template>
   <div class="pageContainer">
     <header class="header">
-      <router-link to="/" class="logo">Bohater Construction</router-link>
+      <router-link :to="{ name: 'home' }" class="logo">Bohater Construction</router-link>
       <nav class="nav">
-        <router-link to="/about" class="link">About</router-link>
-        <router-link to="/projects" class="link">Projects</router-link>
-        <router-link to="/contact" class="link">Contact</router-link>
+        <router-link :to="{ name: 'projects' }" class="link">Projects</router-link>
+        <router-link :to="{ name: 'about' }" class="link">About Me</router-link>
+        <router-link :to="{ name: 'contact' }" class="link">Contact</router-link>
       </nav>
     </header>
   </div>

@@ -1,27 +1,36 @@
 <template>
   <main>
-    <h1 class="heading">Get in Touch</h1>
-    <form class="form" action="https://bohater-construction.co/contact-form" method="GET">
-      <div class="form-group">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required />
-      </div>
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required />
-      </div>
-      <div class="form-group">
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" required></textarea>
-      </div>
-      <button class="button" type="submit">Send</button>
-    </form>
+    <div class="contact-container">
+      <h1 class="heading">Get in Touch</h1>
+      <form class="form" action="https://bohater-construction.co/contact-form" method="GET">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button class="button" type="submit">Send</button>
+      </form>
+    </div>
   </main>
 </template>
 
 <script></script>
 
 <style scoped>
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
 
 .heading {
   font-size: 48px;
@@ -30,19 +39,29 @@
 }
 
 .form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
   background-color: rgba(0, 0, 0, 0.3);
-  padding: 40px;
+  padding: 30px;
   border-radius: 10px;
   width: 100%;
   max-width: 600px;
 }
 
 .form-group {
-  margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
 }
 
 label {
-  display: block;
+  display: flex;
+  justify-content: flex-start;
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
@@ -50,7 +69,8 @@ label {
 
 input,
 textarea {
-  width: 100%;
+  color: #000;
+  display: flex;
   padding: 10px;
   font-size: 16px;
   border: none;
@@ -61,5 +81,4 @@ textarea {
 textarea {
   height: 150px;
 }
-
 </style>

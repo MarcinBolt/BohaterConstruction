@@ -33,7 +33,7 @@ const props = defineProps({
 }
 
 .project-card:hover {
-  transform: translateY(-1px);
+  transform: translateY(-4px);
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.499);
 }
 .project-card:hover .image {

@@ -2,36 +2,38 @@
   <main>
     <h1>Bringing Your Vision to Life</h1>
     <p>
-      Bohater Construction is a team of passionate experts dedicated to transforming your dreams
-      into reality. Let us guide you through the process of creating the perfect space for your
-      needs.
+      At Bohater Construction, the name "Bohater" itself carries a powerful Polish meaning, as it
+      translates to "hero" in English. This name reflects my unwavering commitment to being the
+      hero of your construction journey, dedicated to transforming your dreams into reality
+      through exceptional craftsmanship and unparalleled service.
     </p>
-    <router-link to="/get-started" class="button">Get Started</router-link>
+    <router-link to="/projects" class="button">Realized projects</router-link>
 
     <section class="services">
       <div class="service-item">
         <h3>Residential Construction</h3>
         <p>
-          From custom homes to renovations, we specialize in bringing your residential dreams to
-          life.
+          From custom homes to renovations, I specialize in bringing your residential dreams to life
+          with meticulous attention to detail and exceptional craftsmanship.
         </p>
-        <router-link to="/services/residential">Learn More</router-link>
+        <!-- <router-link to="/services/residential">Learn More</router-link> -->
       </div>
       <div class="service-item">
         <h3>Commercial Construction</h3>
         <p>
-          We offer comprehensive commercial construction services to meet the needs of your
-          business.
+          I offer comprehensive commercial construction services tailored to meet the unique needs
+          of your business, ensuring a seamless and efficient project execution.
         </p>
-        <router-link to="/services/commercial">Learn More</router-link>
+        <!-- <router-link to="/services/commercial">Learn More</router-link> -->
       </div>
       <div class="service-item">
         <h3>Sustainable Construction</h3>
         <p>
-          Our eco-friendly approach ensures that your project is not only beautiful but also
-          environmentally conscious.
+          My eco-friendly approach ensures that your project is not only aesthetically pleasing but
+          also environmentally conscious, incorporating sustainable practices and materials for a
+          greener future.
         </p>
-        <router-link to="/services/sustainable">Learn More</router-link>
+        <!-- <router-link to="/services/sustainable">Learn More</router-link> -->
       </div>
     </section>
   </main>
@@ -40,8 +42,6 @@
 <script setup></script>
 
 <style scoped>
-
-
 h1 {
   font-size: 48px;
   text-align: center;
@@ -63,17 +63,21 @@ p {
 }
 
 .service-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 300px;
   padding: 30px;
   margin: 0;
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   text-align: center;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .service-item:hover {
-  transform: translateY(-10px);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.499);
 }
 
 .service-item h3 {

@@ -2,10 +2,12 @@
   <div class="pageContainer">
     <footer class="footer">
       <div class="footer-content">
-      <p class="paragraph">© 2024 Bohater Construction. All rights reserved.</p>
-      <router-link to="/privacy-policy" class="link">Privacy Policy</router-link>
-    </div>
-    <p class="paragraph">created by <a href="https://github.com/marcinbolt" class="link">MarcinBolt</a></p>
+        <p class="paragraph">© 2024 Bohater Construction</p>
+        <router-link :to="{ name: 'policy' }" class="link">Privacy Policy</router-link>
+      </div>
+      <p class="paragraph">
+        created by <a href="https://github.com/marcinbolt" class="link">MarcinBolt</a>
+      </p>
     </footer>
   </div>
 </template>
@@ -14,7 +16,7 @@
 
 <style scoped>
 .pageContainer {
-  position:absolute;
+  position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -30,7 +32,7 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -42,12 +44,11 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 10px;
 }
 
 .paragraph {
   margin: 0;
   padding: auto;
 }
-
 </style>
