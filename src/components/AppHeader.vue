@@ -34,20 +34,30 @@
 }
 
 .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
   color: #fff;
   text-decoration: none;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
   transition: color 0.3s ease;
+
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+  }
 }
-.logo:hover {
+.logo:hover,
+.logo:focus {
   color: #00c3ff;
 }
 
 .nav {
   display: flex;
-  gap: 20px;
+  justify-content: space-between;
   align-items: center;
+  gap: 20px;
   margin: 0;
   padding: 0;
 }

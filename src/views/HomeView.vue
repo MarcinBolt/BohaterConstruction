@@ -3,11 +3,11 @@
     <h1>Bringing Your Vision to Life</h1>
     <p>
       At Bohater Construction, the name "Bohater" itself carries a powerful Polish meaning, as it
-      translates to "hero" in English. This name reflects my unwavering commitment to being the
-      hero of your construction journey, dedicated to transforming your dreams into reality
-      through exceptional craftsmanship and unparalleled service.
+      translates to "hero" in English. This name reflects my unwavering commitment to being the hero
+      of your construction journey, dedicated to transforming your dreams into reality through
+      exceptional craftsmanship and unparalleled service.
     </p>
-    <router-link to="/projects" class="button">Realized projects</router-link>
+    <router-link :to="{ name: 'projects' }" class="button">Realized projects</router-link>
 
     <section class="services">
       <div class="service-item">

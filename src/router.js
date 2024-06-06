@@ -5,12 +5,15 @@ import ProjectsView from '@views/ProjectsView.vue';
 import ContactView from '@views/ContactView.vue';
 import PolicyView from '@views/PolicyView.vue';
 
+//TODO: change base if will change deploy from gh-pages
+const baseURL = '/BohaterConstruction';
+
 const routes = [
-  { path: '/', name: 'home', component: HomeView },
-  { path: '/about', name: 'about', component: AboutView },
-  { path: '/projects', name: 'projects', component: ProjectsView },
-  { path: '/contact', name: 'contact', component: ContactView },
-  { path: '/policy', name: 'policy', component: PolicyView },
+  { path: `${baseURL}/`, name: 'home', component: HomeView },
+  { path: `${baseURL}/about`, name: 'about', component: AboutView },
+  { path: `${baseURL}/projects`, name: 'projects', component: ProjectsView },
+  { path: `${baseURL}/contact`, name: 'contact', component: ContactView },
+  { path: `${baseURL}/policy`, name: 'policy', component: PolicyView },
 ];
 
 const router = createRouter({

@@ -1,12 +1,12 @@
 <template>
-  <div class="project-card">
+  <li class="project-card" :tabindex="0">
     <img class="image" :src="project.imageUrl" :alt="project.title" />
     <div class="description-container">
       <h2 class="title">{{ project.title }}</h2>
       <p class="description">{{ project.description }}</p>
       <router-link class="button" :to="`/projects/${project.id}`">Learn More</router-link>
     </div>
-  </div>
+  </li>
 </template>
 
 <script setup>
@@ -32,12 +32,15 @@ const props = defineProps({
   transition: all 0.5s ease;
 }
 
+.project-card:focus,
 .project-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-5px);
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.499);
 }
+
+.project-card:focus .image,
 .project-card:hover .image {
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
 
 .image {

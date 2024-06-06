@@ -1,9 +1,9 @@
 <template>
   <main>
     <h1>Completed Projects</h1>
-    <div class="project-grid">
+    <ul class="project-grid">
       <ProjectCard v-for="project in projects" :key="project.id" :project="project" />
-    </div>
+    </ul>
   </main>
 </template>
 
@@ -23,6 +23,8 @@ h1 {
 }
 
 .project-grid {
+  list-style: none;
+  padding: 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 450px));
   grid-gap: 30px;

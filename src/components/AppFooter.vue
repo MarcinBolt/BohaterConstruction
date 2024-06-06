@@ -28,15 +28,20 @@
 .footer {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 10px;
+  padding: 20px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
   justify-content: center;
   align-items: center;
   text-align: center;
   font-size: 16px;
+
+  @media screen and (min-width: 1280px) {
+    gap: 10px;
+    padding: 15px;
+  }
 }
 
 .footer-content {
@@ -44,7 +49,11 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 15px;
+
+  @media screen and (min-width: 1280px) {
+    gap: 10px;
+  }
 }
 
 .paragraph {
