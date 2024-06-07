@@ -24,12 +24,13 @@ const props = defineProps({
   flex-direction: column;
   justify-content: space-between;
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.5s ease;
+  max-width: 400px;
 }
 
 .project-card:focus,

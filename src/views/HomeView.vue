@@ -8,38 +8,69 @@
       exceptional craftsmanship and unparalleled service.
     </p>
     <router-link :to="{ name: 'projects' }" class="button">Realized projects</router-link>
-
     <section class="services">
-      <div class="service-item">
-        <h3>Residential Construction</h3>
-        <p>
-          From custom homes to renovations, I specialize in bringing your residential dreams to life
-          with meticulous attention to detail and exceptional craftsmanship.
-        </p>
-        <!-- <router-link to="/services/residential">Learn More</router-link> -->
-      </div>
-      <div class="service-item">
-        <h3>Commercial Construction</h3>
-        <p>
-          I offer comprehensive commercial construction services tailored to meet the unique needs
-          of your business, ensuring a seamless and efficient project execution.
-        </p>
-        <!-- <router-link to="/services/commercial">Learn More</router-link> -->
-      </div>
-      <div class="service-item">
-        <h3>Sustainable Construction</h3>
-        <p>
-          My eco-friendly approach ensures that your project is not only aesthetically pleasing but
-          also environmentally conscious, incorporating sustainable practices and materials for a
-          greener future.
-        </p>
-        <!-- <router-link to="/services/sustainable">Learn More</router-link> -->
+      <div
+        v-for="(service, index) in services"
+        :key="index"
+        class="service-item"
+        :tabindex="0"
+        :class="{ 'service-item--focus': isServiceItemFocused === index, 'service-item--hover': isServiceItemHovered === index }"
+        @focus="onServiceItemFocus(index)"
+        @blur="onServiceItemBlur"
+        @mouseenter="onServiceItemMouseEnter(index)"
+        @mouseleave="onServiceItemMouseLeave"
+      >
+        <h3>{{ service.title }}</h3>
+        <p>{{ service.description }}</p>
+        <router-link class="link" :to="`/services/${service.id}`">Learn More</router-link>
       </div>
     </section>
   </main>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref } from 'vue';
+
+const services = [
+  {
+    id: 1,
+    title: 'Residential Construction',
+    description:
+      'From custom homes to renovations, I specialize in bringing your residential dreams to life with meticulous attention to detail and exceptional craftsmanship.',
+  },
+  {
+    id: 2,
+    title: 'Commercial Construction',
+    description:
+      'I offer comprehensive commercial construction services tailored to meet the unique needs of your business, ensuring a seamless and efficient project execution.',
+  },
+  {
+    id: 3,
+    title: 'Sustainable Construction',
+    description:
+      'My eco-friendly approach ensures that your project is not only aesthetically pleasing but also environmentally conscious, incorporating sustainable practices and materials for a greener future.',
+  },
+];
+
+const isServiceItemFocused = ref(null);
+const isServiceItemHovered = ref(null);
+
+const onServiceItemFocus = index => {
+  isServiceItemFocused.value = index;
+};
+
+const onServiceItemBlur = () => {
+  isServiceItemFocused.value = null;
+};
+
+const onServiceItemMouseEnter = index => {
+  isServiceItemHovered.value = index;
+};
+
+const onServiceItemMouseLeave = () => {
+  isServiceItemHovered.value = null;
+};
+</script>
 
 <style scoped>
 h1 {
@@ -75,8 +106,9 @@ p {
   transition: all 0.3s ease;
 }
 
-.service-item:hover {
-  transform: translateY(-4px);
+.service-item--focus,
+.service-item--hover {
+  transform: translateY(-5px);
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.499);
 }
 
@@ -90,14 +122,16 @@ p {
   margin-bottom: 30px;
 }
 
-.service-item a {
+.service-item .link {
   color: #00c3ff;
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s ease;
 }
 
-.service-item a:hover {
-  color: #007bff;
+.service-item .link:hover,
+.service-item .link:focus {
+  color: #dcb4fb;
 }
 </style>
+

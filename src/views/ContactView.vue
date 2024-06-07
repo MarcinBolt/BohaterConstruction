@@ -35,7 +35,7 @@
 .heading {
   font-size: 48px;
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .form {
@@ -44,7 +44,7 @@
   justify-content: center;
   align-items: center;
   gap: 20px;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.6);
   padding: 30px;
   border-radius: 10px;
   width: 100%;

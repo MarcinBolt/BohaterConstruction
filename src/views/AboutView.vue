@@ -42,13 +42,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 10px;
+  gap: 10px;
 }
 
 .photo {
-  width: 100%;
-  max-width: 350px;
-  min-width: 300px;
+  width: 300px;
   margin: 0 auto;
 }
 
@@ -61,16 +59,17 @@
   display: flex;
   flex-direction: column;
   text-align: center;
+  gap: 15px;
 }
 
 h1 {
   font-size: 36px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 p {
   font-size: 18px;
-  margin-bottom: 15px;
+  margin: 0;
 }
 
 @media (min-width: 768px) {
@@ -82,6 +81,8 @@ p {
 
   .photo {
     margin-bottom: 0;
+    max-width: 340px;
+    min-width: 280px;
   }
 
   .content {
