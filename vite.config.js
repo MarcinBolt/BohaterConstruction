@@ -4,7 +4,7 @@ import path from 'path';
 
 // https://vitejs.dev/config/
 //TODO: change base if will change deploy from gh-pages
-const baseURL = '/BohaterConstruction/';
+const baseURL = '/BohaterConstruction/#/';
 
 export default defineConfig({
   base: `${baseURL}`,
