@@ -76,7 +76,7 @@ const onServiceItemMouseLeave = () => {
 h1 {
   font-size: 48px;
   text-align: center;
-  margin-bottom: 30px;
+  margin: 20px;
 }
 
 p {

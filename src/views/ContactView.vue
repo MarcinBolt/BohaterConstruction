@@ -26,6 +26,7 @@
 <style scoped>
 .contact-container {
   display: flex;
+  gap: 20px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -35,7 +36,7 @@
 .heading {
   font-size: 48px;
   text-align: center;
-  margin-bottom: 20px;
+  margin: 0;
 }
 
 .form {

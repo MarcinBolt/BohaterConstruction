@@ -1,9 +1,11 @@
 <template>
   <main>
-    <h1>Completed Projects</h1>
-    <ul class="project-grid">
-      <ProjectCard v-for="project in projects" :key="project.id" :project="project" />
-    </ul>
+    <div class="conainer">
+      <h1>Completed Projects</h1>
+      <ul class="project-grid">
+        <ProjectCard v-for="project in projects" :key="project.id" :project="project" />
+      </ul>
+    </div>
   </main>
 </template>
 
@@ -16,10 +18,17 @@ const projects = ref(projectsData);
 </script>
 
 <style scoped>
+
+.conainer {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
 h1 {
   font-size: 48px;
   text-align: center;
-  margin-bottom: 30px;
+  margin: 0;
 }
 
 .project-grid {
@@ -29,7 +38,7 @@ h1 {
   grid-template-columns: repeat(auto-fit, minmax(300px, 450px));
   grid-gap: 30px;
   margin: 0 10px;
-  
+
   @media (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
   }

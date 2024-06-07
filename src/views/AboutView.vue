@@ -41,8 +41,8 @@
 .about-me {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 10px;
+  align-items:center;
+  gap: 30px;
 }
 
 .photo {
@@ -51,6 +51,7 @@
 }
 
 .photo img {
+  display: block;
   width: 100%;
   border-radius: 10px;
 }
@@ -60,11 +61,12 @@
   flex-direction: column;
   text-align: center;
   gap: 15px;
+  max-width: 700px;
 }
 
 h1 {
-  font-size: 36px;
-  margin-bottom: 10px;
+  font-size: 48px;
+  margin: 0;
 }
 
 p {
@@ -75,8 +77,6 @@ p {
 @media (min-width: 768px) {
   .about-me {
     flex-direction: row;
-    gap: 20px;
-    align-items: center;
   }
 
   .photo {
