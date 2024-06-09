@@ -1,15 +1,17 @@
 <template>
   <li class="project-card" :tabindex="0">
-    <img class="image" :src="project.imageUrl" :alt="project.title" />
+    <img class="image" :src="props.project.imageUrl" :alt="props.project.title" />
     <div class="description-container">
-      <h2 class="title">{{ project.title }}</h2>
-      <p class="description">{{ project.description }}</p>
-      <router-link class="button" :to="`/projects/${project.id}`">Learn More</router-link>
+      <h2 class="title">{{ props.project.title }}</h2>
+      <p class="description">{{ props.project.description }}</p>
+      <ButtonWithTransition text="Learn More" :to="`/projects/${props.project.id}`" />
     </div>
   </li>
 </template>
 
 <script setup>
+import ButtonWithTransition from '@/components/ButtonWithTransition.vue';
+
 const props = defineProps({
   project: {
     type: Object,

@@ -3,16 +3,18 @@
     <div class="home-container">
       <h1 class="heading">Page not found</h1>
       <div class="buttons-container">
-        <router-link :to="{ name: 'home' }" class="button" @click.native="$router.go(-1)">
+        <router-link :to="{ name: 'home' }" class="button" @click="$router.go(-1)">
           Go back
         </router-link>
-        <router-link :to="{ name: 'home' }" class="button"> Home </router-link>
+        <ButtonWithTransition text="Home" :to="{ name: 'home' }" />
       </div>
     </div>
   </main>
 </template>
 
-<script></script>
+<script setup>
+import ButtonWithTransition from '@/components/ButtonWithTransition.vue';
+</script>
 
 <style scoped>
 .home-container {

@@ -7,18 +7,16 @@
       of your construction journey, dedicated to transforming your dreams into reality through
       exceptional craftsmanship and unparalleled service.
     </p>
-    <router-link :to="{ name: 'projects' }" class="button">Realized projects</router-link>
+    <ButtonWithTransition text="Realized projects" :to="{ name: 'projects' }" />
     <section class="services">
       <div
         v-for="(service, index) in services"
         :key="index"
         class="service-item"
         :tabindex="0"
-        :class="{ 'service-item--focus': isServiceItemFocused === index, 'service-item--hover': isServiceItemHovered === index }"
+        :class="{ 'service-item--focus': isServiceItemFocused === index }"
         @focus="onServiceItemFocus(index)"
         @blur="onServiceItemBlur"
-        @mouseenter="onServiceItemMouseEnter(index)"
-        @mouseleave="onServiceItemMouseLeave"
       >
         <h3>{{ service.title }}</h3>
         <p>{{ service.description }}</p>
@@ -30,6 +28,7 @@
 
 <script setup>
 import { ref } from 'vue';
+import ButtonWithTransition from '@/components/ButtonWithTransition.vue';
 
 const services = [
   {
@@ -53,7 +52,6 @@ const services = [
 ];
 
 const isServiceItemFocused = ref(null);
-const isServiceItemHovered = ref(null);
 
 const onServiceItemFocus = index => {
   isServiceItemFocused.value = index;
@@ -61,14 +59,6 @@ const onServiceItemFocus = index => {
 
 const onServiceItemBlur = () => {
   isServiceItemFocused.value = null;
-};
-
-const onServiceItemMouseEnter = index => {
-  isServiceItemHovered.value = index;
-};
-
-const onServiceItemMouseLeave = () => {
-  isServiceItemHovered.value = null;
 };
 </script>
 
@@ -97,6 +87,7 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   width: 300px;
   padding: 30px;
   margin: 0;
@@ -134,4 +125,3 @@ p {
   color: #dcb4fb;
 }
 </style>
-
