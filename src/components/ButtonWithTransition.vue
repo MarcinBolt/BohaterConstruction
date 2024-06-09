@@ -64,7 +64,8 @@ const props = defineProps({
   color: transparent;
 }
 
-.button:hover .arrow {
+.button:hover .arrow,
+.button:focus .arrow {
   right: 15px;
   color: #6fddfe;
 }
