@@ -5,11 +5,11 @@
         <img
           class="img"
           src="@assets/images/Bohater.jpeg"
-          alt="Handsome man wearing construction helmet"
+          alt="Bohater construction founder photo"
         />
       </div>
       <div class="content">
-        <h1>About Me</h1>
+        <h1 class="heading">About Me</h1>
         <p>
           Welcome to Bohater Construction! My name is [Your Name], and I am the proud owner and sole
           operator of this one-man construction company. The name "Bohater" translates to "hero" in
@@ -21,10 +21,11 @@
           dreams to life with exceptional craftsmanship and unparalleled service.
         </p>
         <p>
-          My journey in the construction industry began [X] years ago, and over the years, I have
-          honed my skills and gained invaluable experience. I take pride in delivering high-quality
-          results that exceed my clients' expectations.
+          My journey in the construction industry began <span class="highlight">[X]</span> years
+          ago, and over the years, I have honed my skills and gained invaluable experience. I take
+          pride in delivering high-quality results that exceed my clients' expectations.
         </p>
+        <p>I also love to travel, meet new people, and explore different cultures.</p>
         <p>
           At Bohater Construction, I believe in building structures that stand the test of time. I
           use only the highest quality materials and employ sustainable practices to create spaces
@@ -41,7 +42,7 @@
 .about-me {
   display: flex;
   flex-direction: column;
-  align-items:center;
+  align-items: center;
   gap: 30px;
 }
 
@@ -65,13 +66,17 @@
 }
 
 h1 {
-  font-size: 48px;
   margin: 0;
 }
 
 p {
   font-size: 18px;
   margin: 0;
+}
+
+.highlight {
+  font-weight: bold;
+  color: red;
 }
 
 @media (min-width: 768px) {

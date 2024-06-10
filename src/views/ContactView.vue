@@ -2,7 +2,7 @@
   <main>
     <div class="contact-container">
       <h1 class="heading">Get in Touch</h1>
-      <form class="form" action="https://bohater-construction.co/contact-form" method="GET">
+      <form class="form">
         <div class="form-group">
           <label for="name">Name:</label>
           <input type="text" id="name" name="name" required />
@@ -21,7 +21,9 @@
   </main>
 </template>
 
-<script></script>
+<script>
+//TODO: add form sending massage logic
+</script>
 
 <style scoped>
 .contact-container {
@@ -34,7 +36,6 @@
 }
 
 .heading {
-  font-size: 48px;
   text-align: center;
   margin: 0;
 }

@@ -3,7 +3,7 @@
     <footer class="footer">
       <div class="footer-content">
         <p class="paragraph">© 2024 Bohater Construction</p>
-        <router-link :to="{ name: 'policy' }" class="link">Privacy Policy</router-link>
+        <router-link :to="{ name: 'policy' }" class="link" @click="scrollToTop">Privacy Policy</router-link>
       </div>
       <p class="paragraph">
         created by <a href="https://github.com/marcinbolt" class="link">MarcinBolt</a>
@@ -12,7 +12,17 @@
   </div>
 </template>
 
-<script></script>
+<script setup>
+
+const scrollToTop = () => {
+  if (window.innerHeight < document.documentElement.scrollHeight) {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }
+};
+</script>
 
 <style scoped>
 .pageContainer {
@@ -61,3 +71,5 @@
   padding: auto;
 }
 </style>
+
+

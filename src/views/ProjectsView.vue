@@ -1,7 +1,7 @@
 <template>
   <main>
-    <div class="conainer">
-      <h1>Completed Projects</h1>
+    <div class="container">
+      <h1 class="heading">Completed Projects</h1>
       <ul class="project-grid">
         <ProjectCard v-for="project in projects" :key="project.id" :project="project" />
       </ul>
@@ -18,15 +18,13 @@ const projects = ref(projectsData);
 </script>
 
 <style scoped>
-
-.conainer {
+.container {
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
 
-h1 {
-  font-size: 48px;
+.heading {
   text-align: center;
   margin: 0;
 }

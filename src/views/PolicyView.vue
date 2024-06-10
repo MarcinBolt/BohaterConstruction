@@ -2,32 +2,34 @@
   <main>
     <div class="policy-container">
       <h1 class="heading">Privacy Policy</h1>
-      <p class="paragraph">
-        The processing of personal data is important to me. I value your trust in my company and
-        stand for your privacy.
-      </p>
-      <p class="paragraph">
-        This privacy policy describes how I collect, use, and share personal data when you visit or
-        use my website.
-      </p>
-      <p class="paragraph">
-        I do not identify you as an individual when you visit or use my website.
-      </p>
-      <p class="paragraph">
-        I only collect and use the information you actively provide. I do not collect personal data
-        of minors.
-      </p>
-      <p class="paragraph">
-        I will not share personal data with third parties unless it is necessary by laws or
-        regulations.
-      </p>
-      <p class="paragraph">
-        You can contact me via the contact page on my website - by filling the contact form.
-      </p>
-      <p class="paragraph">
-        This privacy policy may be updated. I will publish any changes on this page. If you disagree
-        with the changes to this privacy policy, please leave this page.
-      </p>
+      <ul class="list">
+        <li class="list-element">
+          The processing of personal data is important to me. I value your trust in my company and
+          stand for your privacy.
+        </li>
+        <li class="list-element">
+          This privacy policy describes how I collect, use, and share personal data when you visit or
+          use my website.
+        </li>
+        <li class="list-element">
+          I do not identify you as an individual when you visit or use my website.
+        </li>
+        <li class="list-element">
+          I only collect and use the information you actively provide. I do not collect personal data
+          of minors.
+        </li>
+        <li class="list-element">
+          I will not share personal data with third parties unless it is necessary by laws or
+          regulations.
+        </li>
+        <li class="list-element">
+          You can contact me via the contact page on my website - by filling the contact form.
+        </li>
+        <li class="list-element">
+          This privacy policy may be updated. I will publish any changes on this page. If you disagree
+          with the changes to this privacy policy, please leave this page.
+        </li>
+      </ul>
     </div>
   </main>
 </template>
@@ -46,13 +48,27 @@
 }
 
 .heading {
-  font-size: 48px;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
-.paragraph {
-  font-size: 18px;
-  margin: 0 auto;
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-element {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+@media (min-width: 480px) {
+  .list-element {
+    font-size: 18px;
+  }
 }
 </style>
+
+
+

@@ -27,7 +27,6 @@ import ButtonWithTransition from '@/components/ButtonWithTransition.vue';
 }
 
 .heading {
-  font-size: 48px;
   text-align: center;
   margin-bottom: 20px;
 }

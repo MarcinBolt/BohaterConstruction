@@ -1,7 +1,7 @@
 <template>
   <main>
-    <h1>Bringing Your Vision to Life</h1>
-    <p>
+    <h1 class="heading">Bringing Your Vision to Life</h1>
+    <p class="paragraph">
       At Bohater Construction, the name "Bohater" itself carries a powerful Polish meaning, as it
       translates to "hero" in English. This name reflects my unwavering commitment to being the hero
       of your construction journey, dedicated to transforming your dreams into reality through
@@ -18,9 +18,11 @@
         @focus="onServiceItemFocus(index)"
         @blur="onServiceItemBlur"
       >
-        <h3>{{ service.title }}</h3>
-        <p>{{ service.description }}</p>
-        <router-link class="link" :to="`/services/${service.id}`">Learn More</router-link>
+        <h3 class="service-item-title">{{ service.title }}</h3>
+        <p class="service-item-description">{{ service.description }}</p>
+        <router-link class="service-item-link" :to="`/services/${service.id}`"
+          >Learn More</router-link
+        >
       </div>
     </section>
   </main>
@@ -63,16 +65,19 @@ const onServiceItemBlur = () => {
 </script>
 
 <style scoped>
-h1 {
-  font-size: 48px;
+.heading {
   text-align: center;
   margin: 20px;
 }
 
-p {
-  font-size: 24px;
+.paragraph {
+  font-size: 20px;
   text-align: center;
   margin-bottom: 50px;
+
+  @media screen and (min-width: 480px) {
+    font-size: 24px;
+  }
 }
 
 .services {
@@ -103,17 +108,17 @@ p {
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.499);
 }
 
-.service-item h3 {
+.service-item-title {
   font-size: 24px;
   margin-bottom: 20px;
 }
 
-.service-item p {
+.service-item-description {
   font-size: 18px;
   margin-bottom: 30px;
 }
 
-.service-item .link {
+.service-item-link {
   color: #00c3ff;
   text-decoration: none;
   font-weight: bold;
