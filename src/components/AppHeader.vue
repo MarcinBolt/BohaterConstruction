@@ -14,53 +14,26 @@
       </button>
       <nav class="nav">
         <router-link
-          :to="{ name: 'projects' }"
+          v-for="link in links"
+          :key="link.name"
+          :to="{ name: link.name }"
           class="link nav-link"
-          :class="{ active: isActive('projects') }"
+          :class="{ active: isActive(link.name) }"
         >
-          Projects
-        </router-link>
-        <router-link
-          :to="{ name: 'about' }"
-          class="link nav-link"
-          :class="{ active: isActive('about') }"
-        >
-          About Me
-        </router-link>
-        <router-link
-          :to="{ name: 'contact' }"
-          class="link nav-link"
-          :class="{ active: isActive('contact') }"
-        >
-          Contact
+          {{ link.label }}
         </router-link>
       </nav>
       <div class="backdrop" v-if="isMenuOpen" @click.self="isMenuOpen = false">
         <div class="mobile-menu" v-if="isMenuOpen">
           <router-link
-            :to="{ name: 'projects' }"
+            v-for="link in links"
+            :key="link.name"
+            :to="{ name: link.name }"
             class="link mobile-link"
-            :class="{ active: isActive('projects') }"
+            :class="{ active: isActive(link.name) }"
             @click.self="isMenuOpen = false"
           >
-            Projects
-          </router-link>
-          <router-link
-            :to="{ name: 'about' }"
-            class="link mobile-link"
-            :class="{ active: isActive('about') }"
-            @click.self="isMenuOpen = false"
-          >
-            About Me
-          </router-link>
-          <router-link
-            :to="{ name: 'contact' }"
-            @click="isMenuOpen = false"
-            class="link mobile-link"
-            :class="{ active: isActive('contact') }"
-            @click.self="isMenuOpen = false"
-          >
-            Contact
+            {{ link.label }}
           </router-link>
         </div>
       </div>
@@ -72,13 +45,17 @@
 import { useRoute } from 'vue-router';
 import { ref } from 'vue';
 
+const route = useRoute();
 const isMenuOpen = ref(false);
+const links = [
+  { name: 'projects', label: 'Projects' },
+  { name: 'about', label: 'About Me' },
+  { name: 'contact', label: 'Contact' },
+];
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
 };
-
-const route = useRoute();
 
 const isActive = routeName => {
   return route.name === routeName;
