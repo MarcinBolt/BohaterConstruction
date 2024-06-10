@@ -19,6 +19,8 @@
           :to="{ name: link.name }"
           class="link nav-link"
           :class="{ active: isActive(link.name) }"
+          @mousemove="handleMouseMove"
+          @mouseleave="resetBackgroundPosition"
         >
           {{ link.label }}
         </router-link>
@@ -42,10 +44,9 @@
 </template>
 
 <script setup>
-import { useRoute } from 'vue-router';
 import { ref } from 'vue';
+import { useRoute } from 'vue-router';
 
-const route = useRoute();
 const isMenuOpen = ref(false);
 const links = [
   { name: 'projects', label: 'Projects' },
@@ -57,8 +58,25 @@ const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
 };
 
+const route = useRoute();
+
 const isActive = routeName => {
   return route.name === routeName;
+};
+
+const handleMouseMove = event => {
+  const link = event.target;
+  const rect = link.getBoundingClientRect();
+  const x = event.clientX - rect.left;
+  const y = event.clientY - rect.top;
+  link.style.setProperty('--x', `${x}px`);
+  link.style.setProperty('--y', `${y}px`);
+};
+
+const resetBackgroundPosition = event => {
+  const link = event.target;
+  link.style.setProperty('--x', '50%');
+  link.style.setProperty('--y', '50%');
 };
 </script>
 
@@ -227,10 +245,17 @@ const isActive = routeName => {
     text-decoration: none;
     font-size: 20px;
     font-weight: bold;
-    transition: color 0.3s ease;
+    background-size: 100% 100%;
+    transition: all 0.05s ease;
   }
 
-  .nav-link:hover,
+  .nav-link:hover {
+    background: url('@assets/images/blurColor2.jpg') no-repeat;
+    background-position: calc(5% - var(--x) * 3) calc(80% - var(--y) * 3);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
   .nav-link:focus {
     color: #ce94fa;
   }
