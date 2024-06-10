@@ -125,8 +125,8 @@ const onServiceItemBlur = () => {
   transition: color 0.3s ease;
 }
 
-.service-item .link:hover,
-.service-item .link:focus {
+.service-item .service-item-link:hover,
+.service-item .service-item-link:focus {
   color: #dcb4fb;
 }
 </style>
