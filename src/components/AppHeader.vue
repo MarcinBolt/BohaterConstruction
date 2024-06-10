@@ -250,7 +250,7 @@ const resetBackgroundPosition = event => {
   }
 
   .nav-link:hover {
-    background: url('@assets/images/blurColor2.jpg') no-repeat;
+    background: url('@assets/images/blurColors.jpg') no-repeat;
     background-position: calc(5% - var(--x) * 3) calc(80% - var(--y) * 3);
     background-clip: text;
     -webkit-background-clip: text;
