@@ -1,7 +1,13 @@
 <template>
   <div class="pageContainer">
     <header class="header">
-      <router-link :to="{ name: 'home' }" class="logo">Bohater Construction</router-link>
+      <router-link
+        :to="{ name: 'home' }"
+        class="logo"
+        @mousemove="handleMouseMove"
+        @mouseleave="resetBackgroundPosition"
+        >Bohater Construction</router-link
+      >
       <button
         class="burger"
         type="button"
@@ -68,15 +74,15 @@ const handleMouseMove = event => {
   const link = event.target;
   const rect = link.getBoundingClientRect();
   const x = event.clientX - rect.left;
-  const y = event.clientY - rect.top;
+  // const y = event.clientY - rect.top; // TODO: maybe remove this line later
   link.style.setProperty('--x', `${x}px`);
-  link.style.setProperty('--y', `${y}px`);
+  // link.style.setProperty('--y', `${y}px`); // TODO: maybe remove this line later
 };
 
 const resetBackgroundPosition = event => {
   const link = event.target;
   link.style.setProperty('--x', '50%');
-  link.style.setProperty('--y', '50%');
+  // link.style.setProperty('--y', '50%'); // TODO: maybe remove this line later
 };
 </script>
 
@@ -105,18 +111,67 @@ const resetBackgroundPosition = event => {
   justify-content: center;
   align-items: center;
   text-align: left;
-  color: #fff;
+  text-decoration: none;
+  color: #c4c4c4e2;
   text-decoration: none;
   font-size: 18px;
   font-weight: bold;
-  transition: color 0.3s ease;
+  transition: all 0.05s ease;
+  background: linear-gradient(
+    90deg,
+    #fff,
+    #fff,
+    #fff,
+    #fff,
+    #fff,
+    #cdcdcdc9,
+    #919191e1,
+    #cdcdcdc9,
+    #fff,
+    #fff,
+    #fff,
+    #fff,
+    #fff
+  );
+  background-size: 300% 100%;
+  background-position: var(--x);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 10s linear infinite;
 
   @media screen and (min-width: 768px) {
     font-size: 24px;
   }
 }
-.logo:hover,
+.logo:hover {
+  animation: none;
+  background: linear-gradient(
+    90deg,
+    #ce94fa,
+    #ce94fa,
+    #a128fe,
+    #919191e1,
+    #cdcdcdc9,
+    #fff,
+    #fff,
+    #fff,
+    #fff,
+    #fff,
+    #cdcdcdc9,
+    #919191e1,
+    #a128fe,
+    #ce94fa,
+    #ce94fa
+  );
+  background-size: 150% 100%;
+  background-position: var(--x);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .logo:focus {
+  animation: none;
   color: #ce94fa;
 }
 
@@ -204,7 +259,6 @@ const resetBackgroundPosition = event => {
   }
 }
 
-.mobile-link:hover,
 .mobile-link:focus {
   color: #ce94fa;
   transform: translateY(-5%);
@@ -245,13 +299,23 @@ const resetBackgroundPosition = event => {
     text-decoration: none;
     font-size: 20px;
     font-weight: bold;
-    background-size: 100% 100%;
     transition: all 0.05s ease;
   }
 
   .nav-link:hover {
-    background: url('@assets/images/blurColors.jpg') no-repeat;
-    background-position: calc(5% - var(--x) * 3) calc(80% - var(--y) * 3);
+    background: linear-gradient(
+      90deg,
+      #ce94fa,
+      #a128fe,
+      #0080ff,
+      #00bfff,
+      #00bfff,
+      #0080ff,
+      #a128fe,
+      #ce94fa
+    );
+    background-size: 150% 100%;
+    background-position: var(--x);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -263,5 +327,17 @@ const resetBackgroundPosition = event => {
 
 .active {
   color: #a972fc;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0% 150%;
+  }
+  /* 50% {
+    background-position: 100% 0%;
+  } */
+  100% {
+    background-position: 150% 0%;
+  }
 }
 </style>

@@ -1,12 +1,5 @@
 <template>
-  <router-link
-    class="button"
-    :to="props.goTo"
-    @focus="increaseButtonWidth"
-    @blur="resetButtonWidth"
-    @mouseleave="resetButtonWidth"
-    @mouseenter="increaseButtonWidth"
-  >
+  <router-link class="button">
     {{ props.text }}
     <span class="arrow"></span>
   </router-link>
@@ -16,10 +9,6 @@
 const props = defineProps({
   text: {
     type: String,
-    required: true,
-  },
-  goTo: {
-    type: Object || String,
     required: true,
   },
 });
