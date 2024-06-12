@@ -20,7 +20,7 @@
       >
         <!-- TODO: FIX - add separate images for every services -->
         <!-- <img class="background" :src="service.imageSrc" alt="" /> -->
-        <img class="background" src="@assets/images/Commercial.jpeg" alt="" />
+        <img class="background" src="@assets/images/Residential.jpeg" alt="" />
         <div class="card-content">
           <div class="service-icon">
             <svg xmlns="http://www.w3.org/2000/svg" id="icon-eye" viewBox="0 0 32 32" fill="none">
