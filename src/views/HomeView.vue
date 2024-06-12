@@ -18,7 +18,9 @@
         @focus="onCardFocus(index)"
         @blur="onCardBlur"
       >
-        <img class="background" :src="service.imageSrc" alt="" />
+        <!-- TODO: FIX - add separate images for every services -->
+        <!-- <img class="background" :src="service.imageSrc" alt="" /> -->
+        <img class="background" src="@assets/images/Commercial.jpeg" alt="" />
         <div class="card-content">
           <div class="service-icon">
             <svg xmlns="http://www.w3.org/2000/svg" id="icon-eye" viewBox="0 0 32 32" fill="none">
@@ -43,25 +45,29 @@
 import { ref } from 'vue';
 import ButtonWithTransition from '@/components/ButtonWithTransition.vue';
 
+const ResidentialConstructionImageURL = '@assets/images/Residential.jpeg';
+const CommercialConstructionImageURL = '@assets/images/Commercial.jpeg';
+const SustainableConstructionImageURL = '@assets/images/Sustainable.jpeg';
+
 const services = [
   {
     id: 1,
     title: 'Residential Construction',
-    imageSrc: './src/assets/images/ResidentialConstruction.jpeg',
+    imageSrc: ResidentialConstructionImageURL,
     description:
       'From custom homes to renovations, I specialize in bringing your residential dreams to life with meticulous attention to detail and exceptional craftsmanship.',
   },
   {
     id: 2,
     title: 'Commercial Construction',
-    imageSrc: './src/assets/images/CommercialConstruction.jpeg',
+    imageSrc: CommercialConstructionImageURL,
     description:
       'I offer comprehensive commercial construction services tailored to meet the unique needs of your business, ensuring a seamless and efficient project execution.',
   },
   {
     id: 3,
     title: 'Sustainable Construction',
-    imageSrc: './src/assets/images/SustainableConstruction.jpeg',
+    imageSrc: SustainableConstructionImageURL,
     description:
       'My eco-friendly approach ensures that your project is not only aesthetically pleasing but also environmentally conscious, incorporating sustainable practices and materials for a greener future.',
   },
