@@ -47,21 +47,21 @@ const services = [
   {
     id: 1,
     title: 'Residential Construction',
-    imageSrc: './src/assets/images/ResidentialConstruction.png',
+    imageSrc: './src/assets/images/ResidentialConstruction.jpg',
     description:
       'From custom homes to renovations, I specialize in bringing your residential dreams to life with meticulous attention to detail and exceptional craftsmanship.',
   },
   {
     id: 2,
     title: 'Commercial Construction',
-    imageSrc: './src/assets/images/CommercialConstruction.png',
+    imageSrc: './src/assets/images/CommercialConstruction.jpg',
     description:
       'I offer comprehensive commercial construction services tailored to meet the unique needs of your business, ensuring a seamless and efficient project execution.',
   },
   {
     id: 3,
     title: 'Sustainable Construction',
-    imageSrc: './src/assets/images/SustainableConstruction.png',
+    imageSrc: './src/assets/images/SustainableConstruction.jpg',
     description:
       'My eco-friendly approach ensures that your project is not only aesthetically pleasing but also environmentally conscious, incorporating sustainable practices and materials for a greener future.',
   },
