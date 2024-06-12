@@ -1,10 +1,12 @@
+@import 'normalize.css';
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: rgba(255, 255, 255, 0.843);
   background: linear-gradient(to bottom, #144477, #3e2993);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -48,14 +50,26 @@ main {
   }
 }
 
-h1, heading {
+h1,
+heading {
+  margin: 0;
+  padding: 0;
   font-size: 36px;
   line-height: 1.1;
 
   @media screen and (min-width: 480px) {
     font-size: 46px;
-    
   }
+}
+
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
 }
 
 button,
@@ -100,13 +114,7 @@ button:focus-visible,
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #00c3ff;
-  }
-  button {
-    background-color: #f9f9f9;
+    color: #ffffff;
+    background: linear-gradient(to bottom, #3581fc, #8a54ff);
   }
 }
