@@ -172,7 +172,6 @@ const resetBackgroundPosition = event => {
 }
 .logo:focus {
   animation: none;
-  color: #ce94fa;
 }
 
 .nav {
@@ -307,10 +306,9 @@ const resetBackgroundPosition = event => {
       90deg,
       #ce94fa,
       #a128fe,
-      #0080ff,
       #00bfff,
       #00bfff,
-      #0080ff,
+      #00bfff,
       #a128fe,
       #ce94fa
     );

@@ -36,7 +36,7 @@ const props = defineProps({
 .button:hover,
 .button:focus {
   color: #6fddfe;
-  background-color: #0053ac;
+  background-color: #5500b0;
   padding: 8px 45px 8px 25px;
 }
 
