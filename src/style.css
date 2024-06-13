@@ -5,7 +5,7 @@
   line-height: 1.5;
   font-weight: 400;
 
-  /* color-scheme: light dark; */
+  color-scheme: light dark;
   color: rgba(255, 255, 255, 0.843);
   background: linear-gradient(to bottom, #144477, #3e2993);
   font-synthesis: none;
@@ -92,7 +92,7 @@ button:focus,
 .button:focus {
   color: #6fddfe;
   border-color: #0a67aa;
-  background-color: #0053ac;
+  background-color: #5500b0;
 }
 button:focus,
 .button:focus,
@@ -112,9 +112,9 @@ button:focus-visible,
   text-align: center;
 }
 
-/* @media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: light) {
   :root {
     color: #ffffff;
-    background: linear-gradient(to bottom, #3581fc, #8a54ff);
+    background: linear-gradient(to bottom, #2787fd, #9d43fe);
   }
-} */
+}

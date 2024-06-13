@@ -4,8 +4,8 @@
       <div class="photo">
         <img
           class="img"
-          src="@assets/images/Bohater.jpeg"
-          alt="Bohater construction founder photo"
+          src="/images/Bohater.jpeg"
+          alt="Bohater Construction founder photo"
         />
       </div>
       <div class="content">
