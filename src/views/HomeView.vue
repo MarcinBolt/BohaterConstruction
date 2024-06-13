@@ -145,13 +145,13 @@ mg {
   inset: 0;
   object-fit: cover;
   object-position: center;
-  filter: brightness(0.7);
+  filter: brightness(0.8);
   z-index: -1;
   transition: var(--transition-timing) ease;
 }
 .card:hover > .background,
 .card:focus-within > .background {
-  filter: brightness(1);
+  filter: brightness(1.1);
 }
 
 .card > .card-content {
