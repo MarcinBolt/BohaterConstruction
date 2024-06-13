@@ -145,7 +145,7 @@ mg {
   inset: 0;
   object-fit: cover;
   object-position: center;
-  filter: brightness(0.4);
+  filter: brightness(0.7);
   z-index: -1;
   transition: var(--transition-timing) ease;
 }
