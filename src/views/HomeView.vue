@@ -121,7 +121,7 @@ mg {
 }
 
 .card {
-  min-width: 60px;
+  min-width: 50px;
   height: 100%;
   border: 1px dashed #a128fe;
   border-radius: 15px;
@@ -175,9 +175,9 @@ mg {
 }
 
 .card-content > .service-icon {
-  min-width: 35px;
-  max-width: 35px;
-  height: 35px;
+  min-width: 25px;
+  max-width: 25px;
+  height: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
