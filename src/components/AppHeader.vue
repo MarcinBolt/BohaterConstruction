@@ -83,6 +83,7 @@ const resetBackgroundPosition = event => {
   const link = event.target;
   link.style.setProperty('--x', '50%');
   // link.style.setProperty('--y', '50%'); // TODO: maybe remove this line later
+  event.target.blur();
 };
 </script>
 
