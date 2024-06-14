@@ -20,7 +20,7 @@
       >
         <img class="background" :src="service.imageSrc" :alt="service.title" />
         <div class="card-content">
-          <div class="service-icon">
+          <div class="service-icon-eye">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               id="icon-eye"
@@ -35,8 +35,41 @@
             </svg>
           </div>
           <div class="service-content">
-            <p class="description">{{ service.description }}</p>
-            <router-link class="link" :to="`/services/${service.id}`">Learn More</router-link>
+            <div
+              @click="toggleDescription(service.id, $event)"
+              class="button-toggle-description"
+            >
+              <svg
+                v-if="isDescriptionOpen[service.id]"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                fill="none"
+                stroke="none"
+                stroke-width="2"
+                class="feather feather-chevron-up"
+              >
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+              <svg
+                v-else
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                fill="none"
+                stroke="none"
+                stroke-width="2"
+                class="feather feather-chevron-down"
+              >
+                <polyline points="18 15 12 9 6 15"></polyline>
+              </svg>
+              {{ isDescriptionOpen[service.id] ? 'Hide' : 'Read More' }}
+            </div>
+            <p class="description" v-show="isDescriptionOpen[service.id]">
+              {{ service.description }}
+            </p>
             <h3 class="title">{{ service.title }}</h3>
           </div>
         </div>
@@ -79,6 +112,16 @@ const services = [
 ];
 
 const isCardFocused = ref(null);
+const isDescriptionOpen = ref({});
+
+services.forEach(service => {
+  isDescriptionOpen.value[service.id] = false;
+});
+
+const toggleDescription = (serviceId, event) => {
+  isDescriptionOpen.value[serviceId] = !isDescriptionOpen.value[serviceId];
+  event.target.blur();
+};
 
 const onCardFocus = index => {
   isCardFocused.value = index;
@@ -181,24 +224,26 @@ mg {
   transition: var(--transition-timing);
 }
 
-.card-content > .service-icon {
+.card-content > .service-icon-eye {
   padding: 0;
 }
-.card:hover .service-icon,
-.card:focus .service-icon {
+.card:hover .service-icon-eye,
+.card:focus .service-icon-eye {
   display: none;
 }
-.service-icon > svg {
+.service-icon-eye > svg {
   fill: #dcb4fb;
 }
-.card:hover .service-icon > svg,
-.card:focus .service-icon > svg {
+.card:hover .service-icon-eye > svg,
+.card:focus .service-icon-eye > svg {
   display: none;
 }
 
 .service-content {
+  width: 100%;
+  max-height: max-content;
   display: flex;
-  gap: 20px;
+  gap: 5px;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
@@ -210,6 +255,7 @@ mg {
   opacity: 0;
   translate: 0 100%;
   text-align: left;
+  overflow: hidden;
   transition: opacity 0s, translate 1.5s ease;
 }
 .card:hover .service-content,
@@ -218,6 +264,49 @@ mg {
   background-color: rgba(31, 6, 51, 0.65);
   opacity: 1;
   translate: 0 0;
+}
+
+.button-toggle-description {
+  width: max-content;
+  height: min-content;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px 0;
+  margin: 0;
+  outline: none;
+  color: #00c3ff;
+}
+
+.button-toggle-description > svg {
+  width: 20px;
+  height: 20px;
+  stroke: #00c3ff;
+  padding: 5px 0;
+  rotate: 180deg;
+  transition: stroke 0.3s, padding 0.3s, rotate 0.3s;
+}
+.button-toggle-description:hover {
+  color: #dcb4fb;
+}
+.button-toggle-description:hover > svg {
+  stroke: #dcb4fb;
+  transition: stroke 0.3s;
+}
+
+.button-toggle-description:hover .feather-chevron-up {
+  padding: 0;
+  rotate: 0deg;
+  transition: padding 0.3s, rotate 0.3s;
+}
+.button-toggle-description:hover .feather-chevron-down {
+  padding: 10px 0;
+  rotate: 0deg;
+  transition: padding 0.3s, rotate 0.3s;
 }
 
 .card > .backdrop {
