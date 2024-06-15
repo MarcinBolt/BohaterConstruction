@@ -38,7 +38,7 @@
             <p class="service-description" v-show="isDescriptionOpen[service.id]">
               {{ service.description }}
             </p>
-            <div class="service-title-container">
+            <div class="container-service-title">
               <h3 class="service-title">{{ service.title }}</h3>
               <div @click="toggleDescription(service.id, $event)" class="button-toggle-description">
                 <svg
@@ -163,13 +163,21 @@ mg {
 
 .container {
   width: 100%;
-  max-width: 900px;
   display: flex;
-  gap: 2px;
+  flex-direction: column;
+  gap: 15px;
   justify-content: center;
   padding: 50px 0 10px 0;
 
+  @media screen and (min-width: 480px) {
+    gap: 2px;
+    flex-direction: row;
+    padding: 50px 0 10px 0;
+  }
+
   @media screen and (min-width: 768px) {
+    width: 100%;
+    max-width: 900px;
     padding: 50px 0 0px 0;
   }
 }
@@ -177,7 +185,7 @@ mg {
 .card {
   min-width: 55px;
   min-height: 400px;
-  height: 100%;
+  height: 500px;
   border: 1px dashed #a128fe;
   border-radius: 15px;
   overflow: hidden;
@@ -190,7 +198,7 @@ mg {
   --transition-timing: 0.5s;
 
   @media screen and (min-width: 768px) {
-    height: 500px;
+    height: 600px;
   }
 }
 .card:hover,
@@ -276,7 +284,7 @@ mg {
   translate: 0 0;
 }
 
-.service-title-container {
+.container-service-title {
   display: flex;
   width: 100%;
   flex-direction: row;
@@ -285,15 +293,23 @@ mg {
 }
 
 .service-title {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 700;
+
+  @media screen and (min-width: 480px) {
+    font-size: 22px;
+  }
 }
 
 .service-description {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   line-height: 1.5;
-padding-top: 10px;
+  padding-top: 10px;
+
+  @media screen and (min-width: 480px) {
+    font-size: 16px;
+  }
 }
 
 .button-toggle-description {
@@ -306,10 +322,15 @@ padding-top: 10px;
   background: none;
   border: none;
   cursor: pointer;
+  font-size: 16px;
   padding: 10px 0;
   margin: 0;
   outline: none;
   color: #00c3ff;
+
+  @media screen and (min-width: 480px) {
+    font-size: 16px;
+  }
 }
 
 .button-toggle-description > svg {
