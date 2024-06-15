@@ -116,7 +116,7 @@ const onBurgerIconFocus = () => {
   justify-content: space-between;
   align-items: center;
   max-width: 1280px;
-  padding: 15px 15px;
+  padding: 10px 15px;
   margin: 0 auto;
 }
 
@@ -201,7 +201,7 @@ const onBurgerIconFocus = () => {
   top: 0px;
   right: 0px;
   margin: 0;
-  padding: 15px 25px;
+  padding: 10px 20px;
   background-color: none;
   transition: transform 0.3s;
   z-index: 55;
@@ -271,7 +271,7 @@ const onBurgerIconFocus = () => {
     font-size: 20px;
   }
 }
-
+.mobile-link:hover,
 .mobile-link:focus {
   color: #ce94fa;
   transform: translateY(-5%);
@@ -302,12 +302,13 @@ const onBurgerIconFocus = () => {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
     margin: 0;
     padding: 0;
   }
 
   .nav-link {
+    padding: 5px;
     color: #00bfff;
     text-decoration: none;
     font-size: 20px;
