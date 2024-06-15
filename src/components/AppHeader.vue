@@ -4,6 +4,7 @@
       <router-link
         :to="{ name: 'home' }"
         class="logo"
+        @click="onClickRouterLink($event)"
         @mousemove="handleMouseMove"
         @mouseleave="resetBackgroundPosition"
         >Bohater Construction</router-link
@@ -26,6 +27,7 @@
           :to="{ name: link.name }"
           class="link nav-link"
           :class="{ active: isActive(link.name) }"
+          @click="onClickRouterLink($event)"
           @mousemove="handleMouseMove"
           @mouseleave="resetBackgroundPosition"
         >
@@ -62,12 +64,16 @@ const links = [
   { name: 'contact', label: 'Contact' },
 ];
 
-const toggleMenu = (event) => {
+const toggleMenu = event => {
   isMenuOpen.value = !isMenuOpen.value;
   event.target.blur();
 };
 
 const route = useRoute();
+
+const onClickRouterLink = event => {
+  event.target.blur();
+};
 
 const isActive = routeName => {
   return route.name === routeName;
