@@ -35,7 +35,7 @@ const props = defineProps({
 .button:hover,
 .button:focus {
   border: 1px solid #f43ffebe;
-  background: linear-gradient(to bottom, #0e86dc, #1e77fc, #8f27fe);
+  background: linear-gradient(to bottom, #3aacfd,#477bff, #a131fc);
   padding: 8px 45px 8px 25px;
   transition: all 0.25s;
 }
@@ -68,4 +68,3 @@ const props = defineProps({
   transform: rotate(45deg);
 }
 </style>
-
