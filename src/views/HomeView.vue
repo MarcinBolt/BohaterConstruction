@@ -35,10 +35,7 @@
             </svg>
           </div>
           <div class="service-content">
-            <div
-              @click="toggleDescription(service.id, $event)"
-              class="button-toggle-description"
-            >
+            <div @click="toggleDescription(service.id, $event)" class="button-toggle-description">
               <svg
                 v-if="isDescriptionOpen[service.id]"
                 xmlns="http://www.w3.org/2000/svg"
@@ -292,6 +289,7 @@ mg {
 }
 .button-toggle-description:hover {
   color: #dcb4fb;
+  transition: color 0.3s;
 }
 .button-toggle-description:hover > svg {
   stroke: #dcb4fb;

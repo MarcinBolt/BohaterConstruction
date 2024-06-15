@@ -8,16 +8,17 @@
         @mouseleave="resetBackgroundPosition"
         >Bohater Construction</router-link
       >
-      <button
-        class="burger"
-        type="button"
+      <div
+        class="burger-icon"
         :style="{ position: isMenuOpen ? 'fixed' : 'absolute' }"
-        @click="toggleMenu"
+        :tabindex="0"
+        @click="toggleMenu($event)"
+        @focus="onBurgerIconFocus()"
       >
-        <span :class="{ 'burger-line': true, 'top-line': true, toggle: isMenuOpen }"></span>
-        <span :class="{ 'burger-line': true, 'middle-line': true, toggle: isMenuOpen }"></span>
-        <span :class="{ 'burger-line': true, 'bottom-line': true, toggle: isMenuOpen }"></span>
-      </button>
+        <span :class="{ 'burger-icon-line': true, 'top-line': true, toggle: isMenuOpen }"></span>
+        <span :class="{ 'burger-icon-line': true, 'middle-line': true, toggle: isMenuOpen }"></span>
+        <span :class="{ 'burger-icon-line': true, 'bottom-line': true, toggle: isMenuOpen }"></span>
+      </div>
       <nav class="nav">
         <router-link
           v-for="link in links"
@@ -54,14 +55,16 @@ import { ref } from 'vue';
 import { useRoute } from 'vue-router';
 
 const isMenuOpen = ref(false);
+const isBurgerIconFocused = ref(null);
 const links = [
   { name: 'projects', label: 'Projects' },
   { name: 'about', label: 'About Me' },
   { name: 'contact', label: 'Contact' },
 ];
 
-const toggleMenu = () => {
+const toggleMenu = (event) => {
   isMenuOpen.value = !isMenuOpen.value;
+  event.target.blur();
 };
 
 const route = useRoute();
@@ -84,6 +87,10 @@ const resetBackgroundPosition = event => {
   link.style.setProperty('--x', '50%');
   // link.style.setProperty('--y', '50%'); // TODO: maybe remove this line later
   event.target.blur();
+};
+
+const onBurgerIconFocus = () => {
+  isBurgerIconFocused.value = true;
 };
 </script>
 
@@ -179,7 +186,7 @@ const resetBackgroundPosition = event => {
   display: none;
 }
 
-.burger {
+.burger-icon {
   border: none;
   background-color: transparent;
   display: block;
@@ -194,7 +201,7 @@ const resetBackgroundPosition = event => {
   z-index: 55;
 }
 
-.burger-line {
+.burger-icon-line {
   display: block;
   background-color: #00bfff;
   transition: all 0.25s;
@@ -205,8 +212,8 @@ const resetBackgroundPosition = event => {
   opacity: 1;
 }
 
-.burger:hover .burger-line,
-.burger:focus .burger-line {
+.burger-icon:hover .burger-icon-line,
+.burger-icon:focus .burger-icon-line {
   background-color: #a972fc;
 }
 
@@ -281,7 +288,7 @@ const resetBackgroundPosition = event => {
 }
 
 @media (min-width: 768px) {
-  .burger {
+  .burger-icon {
     display: none;
   }
 
