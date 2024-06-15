@@ -16,7 +16,7 @@
         :tabindex="0"
         :class="{ 'card--focus': isCardFocused === index }"
         @focus="onCardFocus(index)"
-        @blur="onCardBlur"
+        @blur="onCardBlur(service.id, $event)"
       >
         <img class="background" :src="service.imageSrc" :alt="service.title" />
         <div class="card-content">
@@ -124,8 +124,10 @@ const onCardFocus = index => {
   isCardFocused.value = index;
 };
 
-const onCardBlur = () => {
+const onCardBlur = (serviceId, event) => {
+  isDescriptionOpen.value[serviceId] = false;
   isCardFocused.value = null;
+  event.target.blur();
 };
 </script>
 
