@@ -3,7 +3,7 @@
     <footer class="footer">
       <div class="footer-content">
         <p class="paragraph">© 2024 Bohater Construction</p>
-        <router-link :to="{ name: 'policy' }" class="link" @click="scrollToTop">Privacy Policy</router-link>
+        <router-link :to="{ name: 'policy' }" class="link" @click="onClickPolicyLink($event)">Privacy Policy</router-link>
       </div>
       <p class="paragraph">
         created by <a href="https://github.com/marcinbolt" class="link">MarcinBolt</a>
@@ -14,7 +14,8 @@
 
 <script setup>
 
-const scrollToTop = () => {
+const onClickPolicyLink = (event) => {
+  event.target.blur();
   if (window.innerHeight < document.documentElement.scrollHeight) {
     window.scrollTo({
       top: 0,
