@@ -20,14 +20,13 @@ const props = defineProps({
   display: inline-block;
   width: max-content;
   border-radius: 8px;
-  border: 1px solid transparent;
   padding: 8px 35px;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
   color: rgba(255, 255, 255, 0.87);
-  border-color: #075389;
-  background-color: #0a67aa;
+  border: 1px solid #075389;
+  background: linear-gradient(to bottom, #2496e9, #1a6edc);
   cursor: pointer;
   text-align: center;
   transition: all 0.25s;
@@ -35,9 +34,10 @@ const props = defineProps({
 
 .button:hover,
 .button:focus {
-  color: #6fddfe;
-  background-color: #5500b0;
+  border: 1px solid #f43ffebe;
+  background: linear-gradient(to bottom, #0e86dc, #1e77fc, #8f27fe);
   padding: 8px 45px 8px 25px;
+  transition: all 0.25s;
 }
 
 .arrow {
@@ -55,8 +55,8 @@ const props = defineProps({
 
 .button:hover .arrow,
 .button:focus .arrow {
-  right: 15px;
-  color: #6fddfe;
+  right: 20px;
+  color: #fff;
 }
 
 .arrow:before {
@@ -68,3 +68,4 @@ const props = defineProps({
   transform: rotate(45deg);
 }
 </style>
+
