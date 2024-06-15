@@ -22,7 +22,7 @@
       </div>
       <nav class="nav">
         <router-link
-          v-for="link in links"
+          v-for="link in filteredNavLinks"
           :key="link.name"
           :to="{ name: link.name }"
           class="link nav-link"
@@ -53,16 +53,19 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { useRoute } from 'vue-router';
 
 const isMenuOpen = ref(false);
 const isBurgerIconFocused = ref(null);
 const links = [
-  { name: 'projects', label: 'Projects' },
-  { name: 'about', label: 'About Me' },
-  { name: 'contact', label: 'Contact' },
+  { name: 'home', label: 'Home Page', inNavView: false, inMobileView: true },
+  { name: 'projects', label: 'Projects', inNavView: true, inMobileView: true },
+  { name: 'about', label: 'About Me', inNavView: true, inMobileView: true },
+  { name: 'contact', label: 'Contact', inNavView: true, inMobileView: true },
 ];
+
+const filteredNavLinks = computed(() => links.filter(link => link.inNavView));
 
 const toggleMenu = event => {
   isMenuOpen.value = !isMenuOpen.value;
