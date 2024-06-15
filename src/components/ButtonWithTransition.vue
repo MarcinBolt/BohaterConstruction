@@ -17,26 +17,27 @@ const props = defineProps({
 <style scoped>
 .button {
   position: relative;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: max-content;
   border-radius: 8px;
-  padding: 8px 35px;
+  padding: 12px 35px;
   font-size: 1em;
   font-weight: 500;
-  font-family: inherit;
-  color: rgba(255, 255, 255, 0.87);
+  line-height: 1em;
+  color: #fff;
   border: 1px solid #075389;
   background: linear-gradient(to bottom, #2496e9, #1a6edc);
   cursor: pointer;
-  text-align: center;
   transition: all 0.25s;
 }
 
 .button:hover,
 .button:focus {
   border: 1px solid #f43ffebe;
-  background: linear-gradient(to bottom, #3aacfd,#477bff, #a131fc);
-  padding: 8px 45px 8px 25px;
+  background: linear-gradient(to bottom, #3aacfd, #477bff, #a131fc);
+  padding: 12px 45px 12px 25px;
   transition: all 0.25s;
 }
 
