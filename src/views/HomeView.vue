@@ -35,39 +35,41 @@
             </svg>
           </div>
           <div class="service-content">
-            <div @click="toggleDescription(service.id, $event)" class="button-toggle-description">
-              <svg
-                v-if="isDescriptionOpen[service.id]"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                width="24"
-                height="24"
-                fill="none"
-                stroke="none"
-                stroke-width="2"
-                class="feather feather-chevron-up"
-              >
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-              <svg
-                v-else
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                width="24"
-                height="24"
-                fill="none"
-                stroke="none"
-                stroke-width="2"
-                class="feather feather-chevron-down"
-              >
-                <polyline points="18 15 12 9 6 15"></polyline>
-              </svg>
-              {{ isDescriptionOpen[service.id] ? 'Hide' : 'Read More' }}
-            </div>
-            <p class="description" v-show="isDescriptionOpen[service.id]">
+            <p class="service-description" v-show="isDescriptionOpen[service.id]">
               {{ service.description }}
             </p>
-            <h3 class="title">{{ service.title }}</h3>
+            <div class="service-title-container">
+              <h3 class="service-title">{{ service.title }}</h3>
+              <div @click="toggleDescription(service.id, $event)" class="button-toggle-description">
+                <svg
+                  v-if="isDescriptionOpen[service.id]"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="none"
+                  stroke-width="2"
+                  class="feather feather-chevron-up"
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+                <svg
+                  v-else
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="none"
+                  stroke-width="2"
+                  class="feather feather-chevron-down"
+                >
+                  <polyline points="18 15 12 9 6 15"></polyline>
+                </svg>
+                {{ isDescriptionOpen[service.id] ? 'Hide' : 'More' }}
+              </div>
+            </div>
           </div>
         </div>
         <div class="backdrop"></div>
@@ -138,7 +140,7 @@ const onCardBlur = (serviceId, event) => {
 }
 
 .paragraph {
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
   margin-bottom: 50px;
 
@@ -162,15 +164,19 @@ mg {
 .container {
   width: 100%;
   max-width: 900px;
-  height: 400px;
   display: flex;
   gap: 2px;
   justify-content: center;
-  padding: 50px 0 70px 0;
+  padding: 50px 0 10px 0;
+
+  @media screen and (min-width: 768px) {
+    padding: 50px 0 0px 0;
+  }
 }
 
 .card {
   min-width: 55px;
+  min-height: 400px;
   height: 100%;
   border: 1px dashed #a128fe;
   border-radius: 15px;
@@ -182,6 +188,10 @@ mg {
   transition: flex-grow 0.3s ease-in;
   padding: 0;
   --transition-timing: 0.5s;
+
+  @media screen and (min-width: 768px) {
+    height: 500px;
+  }
 }
 .card:hover,
 .card--focus {
@@ -192,6 +202,7 @@ mg {
 .card > .background {
   position: absolute;
   inset: 0;
+  height: 100%;
   object-fit: cover;
   object-position: center;
   filter: brightness(0.8);
@@ -242,10 +253,10 @@ mg {
   width: 100%;
   max-height: max-content;
   display: flex;
-  gap: 5px;
+  gap: 15px;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
   -webkit-box-shadow: 5px 5px 18px 2px rgba(0, 0, 0, 1);
   -moz-box-shadow: 5px 5px 18px 2px rgba(0, 0, 0, 1);
   box-shadow: 5px 5px 18px 2px rgba(0, 0, 0, 1);
@@ -260,13 +271,33 @@ mg {
 .card:hover .service-content,
 .card:focus .service-content {
   border-radius: 10px;
-  background-color: rgba(31, 6, 51, 0.65);
+  background-color: rgba(31, 6, 51, 0.75);
   opacity: 1;
   translate: 0 0;
 }
 
+.service-title-container {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.service-title {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.service-description {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+padding-top: 10px;
+}
+
 .button-toggle-description {
-  width: max-content;
+  width: 60px;
   height: min-content;
   display: flex;
   justify-content: flex-start;
@@ -282,12 +313,12 @@ mg {
 }
 
 .button-toggle-description > svg {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   stroke: #00c3ff;
-  padding: 5px 0;
+  margin: 5px 0;
   rotate: 180deg;
-  transition: stroke 0.3s, padding 0.3s, rotate 0.3s;
+  transition: stroke 0.3s, margin 0.3s, rotate 0.3s;
 }
 .button-toggle-description:hover {
   color: #dcb4fb;
@@ -299,14 +330,14 @@ mg {
 }
 
 .button-toggle-description:hover .feather-chevron-up {
-  padding: 0;
+  margin: 0;
   rotate: 0deg;
-  transition: padding 0.3s, rotate 0.3s;
+  transition: margin 0.3s, rotate 0.3s;
 }
 .button-toggle-description:hover .feather-chevron-down {
-  padding: 10px 0;
+  margin: 10px 0;
   rotate: 0deg;
-  transition: padding 0.3s, rotate 0.3s;
+  transition: margin 0.3s, rotate 0.3s;
 }
 
 .card > .backdrop {
