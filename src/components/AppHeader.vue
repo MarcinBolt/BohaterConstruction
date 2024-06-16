@@ -34,8 +34,12 @@
           {{ link.label }}
         </router-link>
       </nav>
-      <div class="backdrop" v-if="isMenuOpen" @click.self="isMenuOpen = false">
-        <div class="mobile-menu" v-if="isMenuOpen">
+      <div
+        class="backdrop"
+        @click.self="isMenuOpen = false"
+        :class="{ 'backdrop-open': isMenuOpen }"
+      >
+        <div class="mobile-menu" :class="{ 'mobile-menu-open': isMenuOpen }">
           <router-link
             v-for="link in links"
             :key="link.name"
@@ -252,12 +256,19 @@ const onBurgerIconFocus = () => {
   width: 100%;
   height: 100%;
   background: linear-gradient(to bottom, #0a2039, #25185a);
+  opacity: 0;
   transform: translateX(100%);
-  transition: transform 0.25s;
+  transition: all 0.1s;
 
   @media screen and (min-width: 450px) {
     width: 230px;
   }
+}
+
+.mobile-menu-open {
+  opacity: 1;
+  transform: translateX(0%);
+  transition: all 0.3s;
 }
 
 .mobile-link {
@@ -281,6 +292,7 @@ const onBurgerIconFocus = () => {
 }
 
 .backdrop {
+  visibility: hidden;
   position: fixed;
   top: 0;
   left: 0;
@@ -288,12 +300,12 @@ const onBurgerIconFocus = () => {
   margin: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.4);
   z-index: 50;
 }
 
-.mobile-menu {
-  transform: none;
+.backdrop-open {
+  visibility: visible;
 }
 
 @media (min-width: 768px) {
