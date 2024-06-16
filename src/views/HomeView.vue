@@ -204,7 +204,7 @@ mg {
 .card:hover,
 .card--focus {
   flex-grow: 20;
-  border: 1px solid #dcb4fb;
+  border: 1px solid #be6efb;
 }
 
 .card > .background {

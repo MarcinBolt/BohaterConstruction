@@ -41,9 +41,10 @@ main {
   flex-direction: column;
   align-items: center;
   padding: 100px 10px 150px 10px;
-  min-width: 25vw;
+  min-width: 80vw;
 
   @media screen and (min-width: 768px) {
+    min-width: 60vw;
     padding: 90px 10px 130px 10px;
   }
 }
@@ -92,7 +93,7 @@ button:focus,
 .button:focus {
   color: #fff;
   border: 1px solid #f43ffebe;
-  background: linear-gradient(to bottom, #3aacfd,#477bff, #a131fc);
+  background: linear-gradient(to bottom, #3aacfd, #477bff, #a131fc);
 }
 button:focus,
 .button:focus,

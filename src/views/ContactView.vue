@@ -2,27 +2,73 @@
   <main>
     <div class="contact-container">
       <h1 class="heading">Message Me</h1>
-      <form class="form">
+      <form class="form" @submit.prevent="sendEmail">
         <div class="form-group">
           <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required />
+          <input type="text" id="name" v-model="name" required />
         </div>
         <div class="form-group">
           <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required />
+          <input type="email" id="email" v-model="email" required />
         </div>
         <div class="form-group">
           <label for="message">Message:</label>
-          <textarea id="message" name="message" required></textarea>
+          <textarea id="message" v-model="message" required></textarea>
         </div>
-        <button class="button" type="submit">Send</button>
+        <button class="button" type="submit" :disabled="!isFormValid">Send</button>
       </form>
     </div>
   </main>
 </template>
 
-<script>
-//TODO: add form sending massage logic
+<script setup>
+import { ref } from 'vue';
+import axios from 'axios';
+import { toast } from 'vue3-toastify';
+import 'vue3-toastify/dist/index.css';
+
+axios.defaults.baseURL = import.meta.env.VITE_API_URL;
+
+const name = ref('');
+const email = ref('');
+const message = ref('');
+
+const sendEmail = async () => {
+  const formData = {
+    name: name.value,
+    email: email.value,
+    message: message.value,
+  };
+
+  const sendEmailPromise = axios.post(`/send-email`, formData);
+
+  toast.promise(sendEmailPromise, {
+    pending: 'Message sending...',
+    success: {
+      render({ data }) {
+        return `Message sent successfully 👌`;
+      },
+    },
+    error: {
+      render() {
+        return `Error Please try again later. or message me directly to: ${
+          import.meta.env.VITE_PAGE_OWNER_EMAIL
+        }`;
+      },
+      autoClose: false,
+      toastStyle: {
+        background: 'rgba(150, 1, 5, 0.9)',
+        color: '#fff',
+      },
+    },
+  });
+
+  if ((await sendEmailPromise).status === 200) {
+    name.value = '';
+    email.value = '';
+    message.value = '';
+  }
+};
 </script>
 
 <style scoped>
@@ -50,7 +96,7 @@
   padding: 30px;
   border-radius: 10px;
   width: 100%;
-  max-width: 600px;
+  max-width: 700px;
 }
 
 .form-group {
@@ -83,5 +129,12 @@ textarea {
 
 textarea {
   height: 150px;
+}
+
+.button:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+  border: 1px solid #999999;
+  color: #666666;
 }
 </style>
