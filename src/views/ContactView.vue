@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="contact-container">
-      <h1 class="heading">Get in Touch</h1>
+      <h1 class="heading">Message Me</h1>
       <form class="form">
         <div class="form-group">
           <label for="name">Name:</label>
@@ -75,9 +75,10 @@ textarea {
   display: flex;
   padding: 10px;
   font-size: 16px;
+  font-weight: 500;
   border: none;
   border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(210, 231, 255, 0.8);
 }
 
 textarea {
