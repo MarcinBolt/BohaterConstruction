@@ -274,7 +274,7 @@ mg {
   translate: 0 100%;
   text-align: left;
   overflow: hidden;
-  transition: opacity 0s, translate 1.5s ease;
+  transition: translate 1s ease;
 }
 .card:hover .service-content,
 .card:focus .service-content {
