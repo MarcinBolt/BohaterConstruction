@@ -22,16 +22,32 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import axios from 'axios';
 import { toast } from 'vue3-toastify';
 import 'vue3-toastify/dist/index.css';
 
-axios.defaults.baseURL = import.meta.env.VITE_API_URL;
+const baseUrl =
+  import.meta.env.VITE_NODE_ENV === 'development'
+    ? `${import.meta.env.VITE_BACKEND_SERVER_URL}`
+    : `${import.meta.env.VITE_BOHATER_FINAL_BACKEND_SERVER_URL}`;
+
+axios.defaults.baseURL = baseUrl;
+console.log('baseUrl: ', baseUrl);
+const apiEndpoint = import.meta.env.VITE_API_ENDPOINT;
 
 const name = ref('');
 const email = ref('');
 const message = ref('');
+
+const isValidEmail = emailAddress => {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(emailAddress);
+};
+
+const isFormValid = computed(() => {
+  return name.value.trim() && isValidEmail(email.value) && message.value.trim();
+});
 
 const sendEmail = async () => {
   const formData = {
@@ -40,7 +56,7 @@ const sendEmail = async () => {
     message: message.value,
   };
 
-  const sendEmailPromise = axios.post(`/bohater-send-email`, formData);
+  const sendEmailPromise = axios.post(`${apiEndpoint}`, formData);
 
   toast.promise(sendEmailPromise, {
     pending: 'Message sending...',
