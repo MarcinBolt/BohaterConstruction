@@ -23,7 +23,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-app.post('/send-email', (req, res) => {
+app.post('/bohater-send-email', (req, res) => {
   const { name, email, message } = req.body;
 
   let body = 

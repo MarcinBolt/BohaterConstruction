@@ -40,7 +40,7 @@ const sendEmail = async () => {
     message: message.value,
   };
 
-  const sendEmailPromise = axios.post(`/send-email`, formData);
+  const sendEmailPromise = axios.post(`/bohater-send-email`, formData);
 
   toast.promise(sendEmailPromise, {
     pending: 'Message sending...',
