@@ -185,7 +185,7 @@ mg {
 .card {
   min-width: 55px;
   min-height: 400px;
-  height: 500px;
+  height: 550px;
   border: 1px dashed #a128fe;
   border-radius: 15px;
   overflow: hidden;
@@ -197,8 +197,9 @@ mg {
   padding: 0;
   --transition-timing: 0.5s;
 
-  @media screen and (min-width: 768px) {
-    height: 600px;
+  @media screen and (min-width: 1024px) {
+    height: 650px;
+    
   }
 }
 .card:hover,
