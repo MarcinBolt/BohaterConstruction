@@ -112,7 +112,7 @@ const sendEmail = async () => {
   padding: 30px;
   border-radius: 10px;
   width: 100%;
-  max-width: 700px;
+  max-width: 650px;
 }
 
 .form-group {
