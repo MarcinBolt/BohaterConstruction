@@ -1,28 +1,64 @@
 <template>
   <main>
-    <div class="contact-container">
-      <h1 class="heading">Message Me</h1>
-      <form class="form" @submit.prevent="sendEmail">
-        <div class="form-group">
-          <label for="name">Name:</label>
-          <input type="text" id="name" v-model="name" required />
-        </div>
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" id="email" v-model="email" required />
-        </div>
-        <div class="form-group">
-          <label for="message">Message:</label>
-          <textarea id="message" v-model="message" required></textarea>
-        </div>
-        <button class="button" type="submit" :disabled="!isFormValid">Send</button>
-      </form>
-    </div>
+    <v-container class="contact-container">
+      <h1 class="heading">Get In Touch</h1>
+      <v-card
+        class="form-card"
+        theme="dark"
+        style="font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif"
+      >
+        <v-card-title class="text-h3">Send Me a Message</v-card-title>
+        <v-card-text>
+          <v-form ref="form" v-model="isValid">
+            <v-text-field
+              label="Name"
+              class="text-field"
+              v-model="name"
+              :rules="nameRules"
+              required
+              variant="outlined"
+            ></v-text-field>
+            <v-text-field
+              label="Email"
+              class="text-field"
+              v-model="email"
+              :rules="emailRules"
+              required
+              variant="outlined"
+            ></v-text-field>
+            <v-textarea
+              label="Message"
+              class="text-field"
+              v-model="message"
+              :rules="messageRules"
+              required
+              variant="outlined"
+              rows="5"
+              auto-grow
+            >
+            </v-textarea>
+            <v-btn :disabled="!isValid" color="primary" class="send-button" @click="sendEmail">
+              Send
+            </v-btn>
+          </v-form>
+        </v-card-text>
+      </v-card>
+    </v-container>
   </main>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, reactive, toRefs } from 'vue';
+import {
+  VContainer,
+  VCard,
+  VCardTitle,
+  VCardText,
+  VForm,
+  VTextField,
+  VTextarea,
+  VBtn,
+} from 'vuetify/components';
 import axios from 'axios';
 import { toast } from 'vue3-toastify';
 import 'vue3-toastify/dist/index.css';
@@ -33,124 +69,131 @@ const baseUrl =
     : `${import.meta.env.VITE_BOHATER_FINAL_BACKEND_SERVER_URL}`;
 
 axios.defaults.baseURL = baseUrl;
-console.log('baseUrl: ', baseUrl);
 const apiEndpoint = import.meta.env.VITE_API_ENDPOINT;
 
-const name = ref('');
-const email = ref('');
-const message = ref('');
-
-const isValidEmail = emailAddress => {
-  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return regex.test(emailAddress);
-};
-
-const isFormValid = computed(() => {
-  return name.value.trim() && isValidEmail(email.value) && message.value.trim();
+// Reactive form state
+const state = reactive({
+  name: '',
+  email: '',
+  message: '',
+  isValid: false,
 });
 
+// Extract refs from reactive state
+const { name, email, message, isValid } = toRefs(state);
+
+// Form validation rules
+const nameRules = [
+  v => !!v || 'Name is required',
+  v => v.length <= 25 || 'Name must be less than 25 characters',
+];
+const emailRules = [
+  v => !!v || 'E-mail is required',
+  v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+];
+const messageRules = [
+  v => !!v || 'Message is required',
+  v => v.length <= 2000 || 'Message must be less than 2000 characters',
+];
+
+// Form ref
+const form = ref(null);
+
+// Send email function (replace with your logic)
 const sendEmail = async () => {
-  const formData = {
-    name: name.value,
-    email: email.value,
-    message: message.value,
-  };
+  if (form.value.validate()) {
+    const formData = {
+      name: name.value,
+      email: email.value,
+      message: message.value,
+    };
 
-  const sendEmailPromise = axios.post(`${apiEndpoint}`, formData);
+    const sendEmailPromise = axios.post(`${apiEndpoint}`, formData);
 
-  toast.promise(sendEmailPromise, {
-    pending: 'Message sending...',
-    success: {
-      render({ data }) {
-        return `Message sent successfully 👌`;
+    toast.promise(sendEmailPromise, {
+      pending: 'Message sending...',
+      success: {
+        render({ data }) {
+          form.value.resetValidation();
+          form.value.reset();
+          return `Message sent successfully 👌`;
+        },
       },
-    },
-    error: {
-      render() {
-        return `Error Please try again later. or message me directly to: ${
-          import.meta.env.VITE_PAGE_OWNER_EMAIL
-        }`;
+      error: {
+        render() {
+          return `Error Please try again later. or message me directly to: ${
+            import.meta.env.VITE_PAGE_OWNER_EMAIL
+          }`;
+        },
+        autoClose: false,
+        toastStyle: {
+          background: 'rgba(150, 1, 5, 0.9)',
+          color: '#fff',
+        },
       },
-      autoClose: false,
-      toastStyle: {
-        background: 'rgba(150, 1, 5, 0.9)',
-        color: '#fff',
-      },
-    },
-  });
-
-  if ((await sendEmailPromise).status === 200) {
-    name.value = '';
-    email.value = '';
-    message.value = '';
+    });
   }
 };
 </script>
 
 <style scoped>
 .contact-container {
-  display: flex;
-  gap: 20px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+  max-width: 600px;
+  margin: auto;
 }
 
 .heading {
   text-align: center;
   margin: 0;
+  padding-bottom: 20px;
 }
 
-.form {
+.form-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: rgba(9, 5, 20, 0.733);
+  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.12);
+  border: 1px solid #782497d7;
+}
+
+.v-text-field {
+  margin-bottom: 20px;
+}
+
+.v-textarea {
+  margin-bottom: 20px;
+}
+
+.send-button {
+  display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 20px;
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 30px;
-  border-radius: 10px;
-  width: 100%;
-  max-width: 650px;
-}
-
-.form-group {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  padding: 0;
-}
-
-label {
-  display: flex;
-  justify-content: flex-start;
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-input,
-textarea {
-  color: #000;
-  display: flex;
-  padding: 10px;
-  font-size: 16px;
+  border-radius: 8px;
+  padding: 12px 35px;
+  margin: 20px auto 0;
+  font-size: 1em;
   font-weight: 500;
-  border: none;
-  border-radius: 5px;
-  background-color: rgba(210, 231, 255, 0.8);
+  line-height: 1em;
+  text-transform: capitalize;
+  color: #fff;
+  border: 1px solid #075389;
+  background: linear-gradient(to bottom, #2496e9, #1a6edc);
+  cursor: pointer;
+  transition: all 0.25s;
 }
 
-textarea {
-  height: 150px;
+.send-button:hover,
+.send-button:focus {
+  color: #fff;
+  border: 1px solid #f43ffebe;
+  background: linear-gradient(to bottom, #3aacfd, #477bff, #a131fc);
 }
 
-.button:disabled {
-  background: #cccccc;
-  cursor: not-allowed;
-  border: 1px solid #999999;
-  color: #666666;
+.send-button:focus,
+.send-button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
 }
 </style>

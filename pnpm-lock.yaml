@@ -35,6 +35,9 @@ dependencies:
   vue3-toastify:
     specifier: ^0.2.1
     version: 0.2.1(vue@3.4.27)
+  vuetify:
+    specifier: 3.6.0-beta.0.0
+    version: 3.6.0-beta.0.0(vue@3.4.27)
 
 devDependencies:
   '@eslint/js':
@@ -2259,6 +2262,28 @@ packages:
       '@vue/runtime-dom': 3.4.27
       '@vue/server-renderer': 3.4.27(vue@3.4.27)
       '@vue/shared': 3.4.27
+
+  /vuetify@3.6.0-beta.0.0(vue@3.4.27):
+    resolution: {integrity: sha512-tG/d+nDEXsY33jr7B0Z/NBEkB9YSkDfb2X4wCL3B2fr2ggWv6H/WkhUtyiksuS/7s7ZYWPik8Obtoe4yqiVj4w==}
+    engines: {node: ^12.20 || >=14.13}
+    peerDependencies:
+      typescript: '>=4.7'
+      vite-plugin-vuetify: '>=1.0.0'
+      vue: ^3.3.0
+      vue-i18n: ^9.0.0
+      webpack-plugin-vuetify: '>=2.0.0'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+      vite-plugin-vuetify:
+        optional: true
+      vue-i18n:
+        optional: true
+      webpack-plugin-vuetify:
+        optional: true
+    dependencies:
+      vue: 3.4.27
+    dev: false
 
   /which@2.0.2:
     resolution: {integrity: sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==}
