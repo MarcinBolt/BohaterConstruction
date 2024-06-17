@@ -98,6 +98,12 @@ const messageRules = [
 
 // Form ref
 const form = ref(null);
+const resetForm = () => {
+  name.value = '';
+  email.value = '';
+  message.value = '';
+  form.value.resetValidation();
+};
 
 // Send email function (replace with your logic)
 const sendEmail = async () => {
@@ -114,8 +120,7 @@ const sendEmail = async () => {
       pending: 'Message sending...',
       success: {
         render({ data }) {
-          form.value.resetValidation();
-          form.value.reset();
+          resetForm();
           return `Message sent successfully 👌`;
         },
       },
