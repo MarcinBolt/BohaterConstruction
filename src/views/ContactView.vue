@@ -24,7 +24,7 @@
             ></v-text-field>
             <v-textarea
               label="Message"
-              class="text-field"
+              class="text-field mb-0"
               v-model="message"
               :rules="messageRules"
               required
@@ -33,7 +33,14 @@
               auto-grow
             >
             </v-textarea>
-            <v-btn :disabled="!isValid" color="primary" class="send-button" @click="sendEmail">
+            <v-switch
+              label="Send a copy to the provided email"
+              v-model="sendCopyToClient"
+              color="#3aacfd"
+              class="pb-0 pt-0 pr-4"
+              hide-details
+            ></v-switch>
+            <v-btn :disabled="!isValid" color="primary" class="send-button mt-6" @click="sendEmail">
               Send
             </v-btn>
           </v-form>
@@ -45,16 +52,6 @@
 
 <script setup>
 import { ref, reactive, toRefs } from 'vue';
-import {
-  VContainer,
-  VCard,
-  VCardTitle,
-  VCardText,
-  VForm,
-  VTextField,
-  VTextarea,
-  VBtn,
-} from 'vuetify/components';
 import axios from 'axios';
 import { toast } from 'vue3-toastify';
 import 'vue3-toastify/dist/index.css';
@@ -73,10 +70,11 @@ const state = reactive({
   email: '',
   message: '',
   isValid: false,
+  sendCopyToClient: false,
 });
 
 // Extract refs from reactive state
-const { name, email, message, isValid } = toRefs(state);
+const { name, email, message, isValid, sendCopyToClient } = toRefs(state);
 
 // Form validation rules
 const nameRules = [
@@ -108,6 +106,7 @@ const sendEmail = async () => {
       name: name.value,
       email: email.value,
       message: message.value,
+      sendCopyToClient: sendCopyToClient.value,
     };
 
     const sendEmailPromise = axios.post(`${apiEndpoint}`, formData);
@@ -122,7 +121,7 @@ const sendEmail = async () => {
       },
       error: {
         render() {
-          return `Error Please try again later. or message me directly to: ${
+          return `Error Please try again later. or message me directly at: ${
             import.meta.env.VITE_PAGE_OWNER_EMAIL
           }`;
         },
@@ -161,7 +160,7 @@ const sendEmail = async () => {
 }
 
 .v-text-field {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .send-button {
@@ -170,7 +169,7 @@ const sendEmail = async () => {
   align-items: center;
   border-radius: 8px;
   padding: 12px 35px;
-  margin: 20px auto 0;
+  margin: 0 auto;
   font-size: 1em;
   font-weight: 500;
   line-height: 1em;
