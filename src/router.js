@@ -1,18 +1,12 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-import HomeView from '@views/HomeView.vue';
-import AboutView from '@views/AboutView.vue';
-import ProjectsView from '@views/ProjectsView.vue';
-import ContactView from '@views/ContactView.vue';
-import PolicyView from '@views/PolicyView.vue';
-import NotFoundView from '@views/NotFoundView.vue';
 
 const routes = [
-  { path: `/`, name: 'home', component: HomeView },
-  { path: `/about`, name: 'about', component: AboutView },
-  { path: `/projects`, name: 'projects', component: ProjectsView },
-  { path: `/contact`, name: 'contact', component: ContactView },
-  { path: `/policy`, name: 'policy', component: PolicyView },
-  { path: `/:pathMatch(.*)*`, name: 'not-found', component: NotFoundView },
+  { path: `/`, name: 'home', component: () => import('@views/HomeView.vue') },
+  { path: `/about`, name: 'about', component: () => import('@views/AboutView.vue') },
+  { path: `/projects`, name: 'projects', component: () => import('@views/ProjectsView.vue') },
+  { path: `/contact`, name: 'contact', component: () => import('@views/ContactView.vue') },
+  { path: `/policy`, name: 'policy', component: () => import('@views/PolicyView.vue') },
+  { path: `/:pathMatch(.*)*`, name: 'not-found', component: () => import('@views/NotFoundView.vue') },
 ];
 
 const router = createRouter({
