@@ -106,7 +106,7 @@ const sendEmail = async () => {
       name: name.value,
       email: email.value,
       message: message.value,
-      sendCopyToClient: sendCopyToClient.value,
+      sendCopyToClient: !!sendCopyToClient.value,
     };
 
     const sendEmailPromise = axios.post(`${apiEndpoint}`, formData);
