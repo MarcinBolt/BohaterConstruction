@@ -2,12 +2,8 @@
   <main>
     <v-container class="contact-container">
       <h1 class="heading">Get In Touch</h1>
-      <v-card
-        class="form-card"
-        theme="dark"
-        style="font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif"
-      >
-        <v-card-title class="text-h3">Send Me a Message</v-card-title>
+      <v-card class="form-card" theme="dark">
+        <v-card-title class="text-h5">Send Me a Message</v-card-title>
         <v-card-text>
           <v-form ref="form" v-model="isValid">
             <v-text-field
@@ -165,10 +161,6 @@ const sendEmail = async () => {
 }
 
 .v-text-field {
-  margin-bottom: 20px;
-}
-
-.v-textarea {
   margin-bottom: 20px;
 }
 
