@@ -90,9 +90,7 @@ const handleMouseMove = event => {
   const link = event.target;
   const rect = link.getBoundingClientRect();
   const x = event.clientX - rect.left;
-  // const y = event.clientY - rect.top; // TODO: maybe remove this line later
   link.style.setProperty('--x', `${x}px`);
-  // link.style.setProperty('--y', `${y}px`); // TODO: maybe remove this line later
 };
 
 const resetBackgroundPosition = event => {
