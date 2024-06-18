@@ -39,6 +39,7 @@ body {
 main {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   padding: 100px 10px 150px 10px;
   min-width: 80vw;

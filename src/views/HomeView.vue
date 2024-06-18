@@ -168,6 +168,7 @@ mg {
   gap: 15px;
   justify-content: center;
   padding: 50px 0 10px 0;
+  margin: 0 auto;
 
   @media screen and (min-width: 480px) {
     gap: 2px;

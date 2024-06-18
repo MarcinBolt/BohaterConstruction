@@ -23,6 +23,7 @@ const props = defineProps({
   width: max-content;
   border-radius: 8px;
   padding: 12px 35px;
+  margin: 0 auto;
   font-size: 1em;
   font-weight: 500;
   line-height: 1em;
