@@ -3,7 +3,7 @@
     <v-container class="contact-container">
       <h1 class="heading">Get In Touch</h1>
       <v-card class="form-card" theme="dark">
-        <v-card-title class="text-h5 pb-4">Contact Form</v-card-title>
+        <v-card-title class="text-h5">Contact Form</v-card-title>
         <v-card-text>
           <v-form ref="form" v-model="isValid">
             <v-text-field
@@ -149,7 +149,7 @@ const sendEmail = async () => {
   justify-content: center;
   padding: 16px;
   border-radius: 8px;
-  background-color: rgba(31, 6, 51, 0.9);
+  background-color: rgba(9, 5, 20, 0.733);
   box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.12);
   border: 1px solid #782497d7;
 }
