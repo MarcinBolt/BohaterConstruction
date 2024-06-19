@@ -41,12 +41,13 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 100px 10px 150px 10px;
+  padding: 50px 10px 120px 10px;
   min-width: 80vw;
+  min-height: min-content;
 
   @media screen and (min-width: 768px) {
     min-width: 60vw;
-    padding: 90px 10px 130px 10px;
+    padding: 70px 10px 130px 10px;
   }
 }
 

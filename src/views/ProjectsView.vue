@@ -1,11 +1,13 @@
 <template>
   <main>
-    <div class="container">
+    <v-container class="container h-full">
       <h1 class="heading">Completed Projects</h1>
-      <ul class="project-grid">
-        <ProjectCard v-for="project in projects" :key="project.id" :project="project" />
-      </ul>
-    </div>
+      <v-carousel show-arrows="hover" cycle hide-delimiter-background>
+        <v-carousel-item v-for="project in projects" :key="`carousel-${project.id}`">
+          <ProjectCard :key="project.id" :project="project" />
+        </v-carousel-item>
+      </v-carousel>
+    </v-container>
   </main>
 </template>
 
@@ -26,22 +28,7 @@ const projects = ref(projectsData);
 
 .heading {
   text-align: center;
-  margin: 0;
-}
-
-.project-grid {
-  list-style: none;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 450px));
-  grid-gap: 30px;
-  margin: 0 10px;
-
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  @media (min-width: 1150px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  margin: 0;
 }
 </style>

@@ -44,6 +44,7 @@
   flex-direction: column;
   align-items: center;
   gap: 30px;
+  padding-top: 20px;
 }
 
 .photo {

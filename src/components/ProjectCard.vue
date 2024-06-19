@@ -4,13 +4,13 @@
     <div class="description-container">
       <h2 class="title">{{ props.project.title }}</h2>
       <p class="description">{{ props.project.description }}</p>
-      <ButtonWithTransition text="Learn More" :to="`/projects/${props.project.id}`" />
+      <!-- <ButtonWithTransition text="Learn More" :to="`/projects/${props.project.id}`" /> -->
     </div>
   </li>
 </template>
 
 <script setup>
-import ButtonWithTransition from '@/components/ButtonWithTransition.vue';
+// import ButtonWithTransition from '@/components/ButtonWithTransition.vue';
 
 const props = defineProps({
   project: {
@@ -27,18 +27,11 @@ const props = defineProps({
   justify-content: space-between;
   padding: 0;
   margin: 0 auto;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(31, 6, 51, 0.7);
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.5s ease;
-  max-width: 400px;
-}
-
-.project-card:focus,
-.project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.499);
+  height: 100%;
 }
 
 .project-card:focus .image,
@@ -48,19 +41,17 @@ const props = defineProps({
 
 .image {
   width: 100%;
-  height: 220px;
   object-fit: cover;
   transition: all 0.5s ease;
   overflow: hidden;
 }
 
 .description-container {
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 0px 10px 20px 10px;
+  padding: 0 10px 50px;
 }
 
 .title {
@@ -72,8 +63,7 @@ const props = defineProps({
 .description {
   font-size: 16px;
   padding: 0;
-  margin: 0 0 20px 0;
-  height: 120px;
+  margin: 0 5px 0;
   overflow: hidden;
   text-overflow: ellipsis;
 }
