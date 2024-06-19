@@ -64,7 +64,6 @@ const baseUrl =
 axios.defaults.baseURL = baseUrl;
 const apiEndpoint = import.meta.env.VITE_API_ENDPOINT;
 
-// Reactive form state
 const state = reactive({
   name: '',
   email: '',
@@ -73,10 +72,8 @@ const state = reactive({
   sendCopyToClient: false,
 });
 
-// Extract refs from reactive state
 const { name, email, message, isValid, sendCopyToClient } = toRefs(state);
 
-// Form validation rules
 const nameRules = [
   v => !!v || 'Name is required',
   v => v.length <= 25 || 'Name must be less than 25 characters',
@@ -90,7 +87,6 @@ const messageRules = [
   v => v.length <= 2000 || 'Message must be less than 2000 characters',
 ];
 
-// Form ref
 const form = ref(null);
 const resetForm = () => {
   name.value = '';
@@ -99,7 +95,6 @@ const resetForm = () => {
   form.value.resetValidation();
 };
 
-// Send email function (replace with your logic)
 const sendEmail = async () => {
   if (form.value.validate()) {
     const formData = {
