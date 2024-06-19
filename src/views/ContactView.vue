@@ -33,13 +33,13 @@
               auto-grow
             >
             </v-textarea>
-            <v-switch
+            <v-checkbox
               label="Send a copy to the provided email"
               v-model="sendCopyToClient"
               color="#3aacfd"
               class="pb-0 pt-0 pr-4"
               hide-details
-            ></v-switch>
+            ></v-checkbox>
             <v-btn :disabled="!isValid" color="primary" class="send-button mt-6" @click="sendEmail">
               Send
             </v-btn>
