@@ -81,41 +81,11 @@
 <script setup>
 import { ref } from 'vue';
 import ButtonWithTransition from '@/components/ButtonWithTransition.vue';
+import servicesData from '@/data/services.json';
 
-const ResidentialConstructionImageURL = './images/Residential.jpeg';
-const CommercialConstructionImageURL = './images/Commercial.jpeg';
-const SustainableConstructionImageURL = './images/Sustainable.jpeg';
-
-const services = [
-  {
-    id: 1,
-    title: 'Residential Construction',
-    imageSrc: ResidentialConstructionImageURL,
-    description:
-      'From custom homes to renovations, I specialize in bringing your residential dreams to life with meticulous attention to detail and exceptional craftsmanship.',
-  },
-  {
-    id: 2,
-    title: 'Commercial Construction',
-    imageSrc: CommercialConstructionImageURL,
-    description:
-      'I offer comprehensive commercial construction services tailored to meet the unique needs of your business, ensuring a seamless and efficient project execution.',
-  },
-  {
-    id: 3,
-    title: 'Sustainable Construction',
-    imageSrc: SustainableConstructionImageURL,
-    description:
-      'My eco-friendly approach ensures that your project is not only aesthetically pleasing but also environmentally conscious, incorporating sustainable practices and materials for a greener future.',
-  },
-];
-
+const services = ref(servicesData);
 const isCardFocused = ref(null);
 const isDescriptionOpen = ref({});
-
-services.forEach(service => {
-  isDescriptionOpen.value[service.id] = false;
-});
 
 const toggleDescription = (serviceId, event) => {
   isDescriptionOpen.value[serviceId] = !isDescriptionOpen.value[serviceId];
@@ -200,7 +170,6 @@ mg {
 
   @media screen and (min-width: 1024px) {
     height: 650px;
-    
   }
 }
 .card:hover,
