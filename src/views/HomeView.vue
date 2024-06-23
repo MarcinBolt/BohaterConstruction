@@ -2,10 +2,10 @@
   <main>
     <h1 class="heading">Bringing Your Vision to Life</h1>
     <p class="paragraph">
-      At Bohater Construction, the name "Bohater" itself carries a powerful Polish meaning, as it
-      translates to "hero" in English. This name reflects my unwavering commitment to being the hero
-      of your construction journey, dedicated to transforming your dreams into reality through
-      exceptional craftsmanship and unparalleled service.
+      The name "Bohater" itself carries a powerful Polish meaning, as it translates to "hero" in
+      English. This name reflects my unwavering commitment to being the hero of your construction
+      journey, dedicated to transforming your dreams into reality through exceptional craftsmanship
+      and unparalleled service.
     </p>
     <ButtonWithTransition text="Realized projects" :to="{ name: 'projects' }" />
     <div class="container">
