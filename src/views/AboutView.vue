@@ -2,11 +2,7 @@
   <main>
     <div class="about-me">
       <div class="photo">
-        <img
-          class="img"
-          src="/images/Bohater.jpeg"
-          alt="Bohater Construction founder photo"
-        />
+        <img class="img" src="/images/Bohater.jpeg" alt="Bohater Construction founder photo" />
       </div>
       <div class="content">
         <h1 class="heading">About Me</h1>
@@ -21,9 +17,9 @@
           dreams to life with exceptional craftsmanship and unparalleled service.
         </p>
         <p>
-          My journey in the construction industry began <span class="highlight">[X]</span> years
-          ago, and over the years, I have honed my skills and gained invaluable experience. I take
-          pride in delivering high-quality results that exceed my clients' expectations.
+          My journey in the construction industry began 5 years ago, and over the years, I have
+          honed my skills and gained invaluable experience. I take pride in delivering high-quality
+          results that exceed my clients' expectations.
         </p>
         <p>I also love to travel, meet new people, and explore different cultures.</p>
         <p>
