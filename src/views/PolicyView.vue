@@ -45,6 +45,7 @@
   width: 100%;
   max-width: 760px;
   gap: 20px;
+  margin: 0 auto;
 }
 
 .heading {
