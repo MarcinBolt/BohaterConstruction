@@ -60,7 +60,7 @@ const onClickPolicyLink = (event) => {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 15px;
+  gap: 16px;
 
   @media screen and (min-width: 1280px) {
     gap: 10px;
